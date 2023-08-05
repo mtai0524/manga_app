@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:background="@drawable/radius_popup"
+        app:cardCornerRadius="30dp"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:padding="20dp"
+            android:background="@color/bg_btn1"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Chủ đề: Ứng dụng đọc truyện"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+        </TextView>
+        <TextView
+            android:id="@+id/tvContent"
+            android:background="@color/white"
+            android:padding="20dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:text="mấy con mèo mê pate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</ScrollView>

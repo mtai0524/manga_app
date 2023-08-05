@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:background="@drawable/main"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/main">
+            </ImageView>
+            <LinearLayout
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <soup.neumorphism.NeumorphCardView
+                    android:layout_marginRight="-15dp"
+                    android:layout_alignLeft="@+id/card_item_search"
+                    app:neumorph_shapeType="pressed"
+                    app:neumorph_shadowElevation="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:scaleType="fitXY"
+                        android:padding="10dp"
+                        android:src="@drawable/cat_manga_holic"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp">
+                    </ImageView>
+                </soup.neumorphism.NeumorphCardView>
+                <soup.neumorphism.NeumorphCardView
+                    android:id="@+id/card_item_search"
+                    android:layout_alignParentRight="true"
+                    app:neumorph_shapeType="pressed"
+                    app:neumorph_shadowElevation="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:scaleType="fitXY"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_search"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp">
+                    </ImageView>
+                </soup.neumorphism.NeumorphCardView>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/ev_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:hint="MẤY CON MÈO">
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:id="@+id/container_imageSlider"
+                app:cardCornerRadius="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/image_slider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="320dp"
+                    android:layout_below="@id/ev_search"
+
+                    app:iss_auto_cycle="true"
+                    app:iss_delay="2000"
+                    app:iss_period="2000"
+                    app:iss_text_align="CENTER" />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:id="@+id/rcv_data"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/container_imageSlider"
+                android:layout_marginTop="72dp"
+                android:layout_marginBottom="100dp">
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

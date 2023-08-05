@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="action_home">HOME</string>
+    <string name="action_favorite">FAVORITE</string>
+    <string name="action_history">HISTORY</string>
+    <string name="action_myManga">MY MANGA</string>
+    <string name="link">https://mangaplus.shueisha.co.jp/drm/title/100228/title_thumbnail_portrait_list/260897.jpg</string>
+</resources>

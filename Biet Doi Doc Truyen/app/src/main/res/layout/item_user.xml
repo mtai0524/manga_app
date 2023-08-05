@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+    <Button
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="Xin chao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </Button>
+    <ImageView
+        android:src="@drawable/mm1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </ImageView>
+</LinearLayout>
+
+
