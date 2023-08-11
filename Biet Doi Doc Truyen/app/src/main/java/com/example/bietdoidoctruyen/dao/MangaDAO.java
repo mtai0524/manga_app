@@ -1,8 +1,10 @@
 package com.example.bietdoidoctruyen.dao;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.bietdoidoctruyen.StringUtils;
@@ -19,6 +21,24 @@ public class MangaDAO {
         helper = new DbHelper(context);
     }
 
+    // trả về id để xác định id của manga vừa mới được thêm vào sqlite
+    public long insertManga(String mangaName, String image, String description) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("mangaName", mangaName);
+        values.put("image", image);
+        values.put("description", description);
+
+        long mangaId = db.insert("MANGA", null, values);
+
+        db.close();
+
+        return mangaId;
+    }
+
+
+    
     public List<Manga> getMangaByName(String searchName) {
         List<Manga> mangaList = new ArrayList<>();
         SQLiteDatabase db = helper.getReadableDatabase();
@@ -31,11 +51,10 @@ public class MangaDAO {
                 @SuppressLint("Range") int mangaId = cursor.getInt(cursor.getColumnIndex("mangaId"));
                 @SuppressLint("Range") String mangaName = cursor.getString(cursor.getColumnIndex("mangaName"));
                 @SuppressLint("Range") String mangaImage = cursor.getString(cursor.getColumnIndex("image"));
-                @SuppressLint("Range") int categoryId = cursor.getInt(cursor.getColumnIndex("categoryId"));
                 @SuppressLint("Range") String description = cursor.getString(cursor.getColumnIndex("description"));
 
                 // Create a Manga object and add it to the list
-                Manga manga = new Manga(mangaId, mangaName, mangaImage, categoryId, description);
+                Manga manga = new Manga(mangaId, mangaName, mangaImage, description);
                 mangaList.add(manga);
             } while (cursor.moveToNext());
         }
@@ -55,9 +74,8 @@ public class MangaDAO {
                 int id = cs.getInt(0);
                 String name = cs.getString(1);
                 String imgName = cs.getString(2);
-                int categoryId = cs.getInt(3);
-                String description = cs.getString(4);
-                Manga c = new Manga(id,name,imgName, categoryId, description);
+                String description = cs.getString(3);
+                Manga c = new Manga(id,name,imgName, description);
                 list.add(c);
             } while (cs.moveToNext());
         }

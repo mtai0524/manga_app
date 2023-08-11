@@ -85,6 +85,7 @@
                         android:textSize="20dp"></TextView>
 
                     <TextView
+                        android:id="@+id/tv_addManga"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
@@ -92,6 +93,7 @@
                         android:textSize="20dp"></TextView>
 
                     <TextView
+                        android:id="@+id/tv_edit_manga"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"

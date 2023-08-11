@@ -17,12 +17,12 @@
         android:textColor="@android:color/holo_purple"
         android:textSize="20dp"
         android:textStyle="bold"></TextView>
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcv_item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/rcv_item_edit"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="2dp"></androidx.recyclerview.widget.RecyclerView>
+        android:layout_marginRight="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.bietdoidoctruyen.dao;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,6 +19,16 @@ public class CommentDAO {
         helper = new DbHelper(context);
     }
 
+
+    public void addComment(int userId, int mangaId, String commentText) {
+        ContentValues values = new ContentValues();
+        values.put("userId", userId);
+        values.put("mangaId", mangaId);
+        values.put("comment", commentText);
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        db.insert("Comment", null, values);
+    }
 
     @SuppressLint("Range")
     public List<Comment> getCommentByMangaId(int mangaId) {

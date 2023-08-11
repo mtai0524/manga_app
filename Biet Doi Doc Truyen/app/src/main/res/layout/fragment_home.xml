@@ -96,8 +96,7 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/container_imageSlider"
                 android:layout_marginTop="72dp"
-                android:layout_marginBottom="100dp">
-            </androidx.recyclerview.widget.RecyclerView>
+                android:layout_marginBottom="100dp"></androidx.recyclerview.widget.RecyclerView>
 
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>

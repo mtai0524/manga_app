@@ -1,6 +1,7 @@
 package com.example.bietdoidoctruyen.dao;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,6 +19,19 @@ public class CategoryMangaDAO {
     public CategoryMangaDAO(Context context) {
         helper = new DbHelper(context);
     }
+
+    public void insertCategoryManga(int categoryId, int mangaId) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("categoryId", categoryId);
+        values.put("mangaId", mangaId);
+
+        db.insert("Category_Manga", null, values);
+
+        db.close();
+    }
+
 
     public List<Integer> getMangaIdsByCategoryId(int categoryId) {
         List<Integer> mangaIds = new ArrayList<>();
@@ -60,7 +74,7 @@ public class CategoryMangaDAO {
                     @SuppressLint("Range") String mangaImage = cursor.getString(cursor.getColumnIndex("image"));
 
                     // Create a Manga object and add it to the list
-                    Manga manga = new Manga(mangaId, mangaName, mangaImage, categoryId);
+                    Manga manga = new Manga(mangaId, mangaName, mangaImage);
                     mangaList.add(manga);
                 }
             } catch (Exception e) {

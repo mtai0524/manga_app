@@ -18,6 +18,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+//import com.example.bietdoidoctruyen.AddMangaViewActivity;
+import com.example.bietdoidoctruyen.AddMangaViewActivity;
+import com.example.bietdoidoctruyen.EditMangaActivity;
 import com.example.bietdoidoctruyen.LoginActivity;
 import com.example.bietdoidoctruyen.MangaListSingleton;
 import com.example.bietdoidoctruyen.R;
@@ -42,6 +45,18 @@ public class MyMangaFragment extends Fragment {
     private TextView tvUserName;
     private TextView tvLogout;
     private ImageView imgAvatarUser;
+    private TextView addManga;
+
+    private boolean isEdit;
+
+    public boolean getEdit() {
+        return isEdit;
+    }
+
+    public void setEdit(boolean edit) {
+        isEdit = edit;
+    }
+
 
     public static final Set<Manga> mangaHistoryList = new HashSet<>();
     private static final int REQUEST_IMAGE_PICKER = 1001;
@@ -121,6 +136,20 @@ public class MyMangaFragment extends Fragment {
             // admin
             TextView tv = view.findViewById(R.id.tv_admin_role);
             tv.setText("admin cdmm");
+            addManga = view.findViewById(R.id.tv_addManga); //nó là của ad
+            addManga.setOnClickListener(view1 -> {
+                startActivity((new Intent(context, AddMangaViewActivity.class)));
+            });
+
+            TextView tvEditManga = view.findViewById(R.id.tv_edit_manga);
+            tvEditManga.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    isEdit = true;
+                    startActivity(new Intent(context, EditMangaActivity.class));
+                }
+            });
+
 
             // them sua xoa chuyen vai tro
         }
@@ -166,6 +195,9 @@ public class MyMangaFragment extends Fragment {
         tvLogout.setOnClickListener(v ->{
             startActivity(new Intent(context, LoginActivity.class));
         });
+
+
+
 
         rcv_data = view.findViewById(R.id.rcv_data);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);

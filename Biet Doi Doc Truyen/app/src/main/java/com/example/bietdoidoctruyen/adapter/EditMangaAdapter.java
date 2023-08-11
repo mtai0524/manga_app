@@ -14,31 +14,28 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-//import com.example.bietdoidoctruyen.DataChapters;
-//import com.example.bietdoidoctruyen.DetailActivity;
 import com.bumptech.glide.Glide;
 import com.example.bietdoidoctruyen.DataChapters;
 import com.example.bietdoidoctruyen.DetailActivity;
 import com.example.bietdoidoctruyen.LoginActivity;
-import com.example.bietdoidoctruyen.MangaListSingleton;
 import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.dao.HistoryDAO;
 import com.example.bietdoidoctruyen.fragment.HistoryFragment;
 import com.example.bietdoidoctruyen.model.Manga;
-import com.example.bietdoidoctruyen.model.Register;
 
 import java.util.ArrayList;
 import java.util.List;
-public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.CategoryViewHolder> {
+
+public class EditMangaAdapter extends RecyclerView.Adapter<EditMangaAdapter.CategoryViewHolder> {
     private List<Manga> mListManga;
     private Context mConText;
-    public MangaAdapter(Context context){
+    public EditMangaAdapter(Context context){
         this.mConText = context;
     }
-    public MangaAdapter(){
+    public EditMangaAdapter(){
 
     }
-    public MangaAdapter(Context conText, List<Manga> mListManga) {
+    public EditMangaAdapter(Context conText, List<Manga> mListManga) {
         this.mConText = conText;
         this.mListManga = mListManga;
     }
@@ -51,7 +48,7 @@ public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.CategoryView
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category_edit, parent,false);
 
         return new CategoryViewHolder(view);
     }
@@ -79,7 +76,7 @@ public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.CategoryView
 
 
         holder.tvDescriptionItem.setText(manga.getMangaName());
-        holder.layoutItem.setOnClickListener(new View.OnClickListener() {
+        holder.layout_item_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(mConText, "clicked", Toast.LENGTH_SHORT).show();
@@ -122,13 +119,13 @@ public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.CategoryView
     public class CategoryViewHolder extends RecyclerView.ViewHolder{
         ImageView imgCategory;
         TextView tvDescriptionItem;
-        LinearLayout layoutItem;
+        LinearLayout layout_item_edit;
         TextView tvChapterName;
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             imgCategory = itemView.findViewById(R.id.img_category);
             tvDescriptionItem = itemView.findViewById(R.id.tv_description_item);
-            layoutItem = itemView.findViewById(R.id.layout_item);
+            layout_item_edit = itemView.findViewById(R.id.layout_item_edit);
         }
     }
 

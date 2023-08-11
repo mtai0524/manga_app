@@ -19,6 +19,7 @@ import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.dao.HistoryDAO;
 import com.example.bietdoidoctruyen.dao.MangaDAO;
 import com.example.bietdoidoctruyen.fragment.HistoryFragment;
+import com.example.bietdoidoctruyen.fragment.MyMangaFragment;
 import com.example.bietdoidoctruyen.model.History;
 import com.example.bietdoidoctruyen.model.Manga;
 import com.example.bietdoidoctruyen.model.ListData;
@@ -68,7 +69,6 @@ public class ListDataAdapter extends RecyclerView.Adapter<ListDataAdapter.ListVi
     @Override
     public ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_list_data, parent,false);
-
         return new ListViewHolder(view);
     }
 

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -19,9 +20,11 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.bietdoidoctruyen.adapter.ChapterAdapter;
@@ -140,47 +143,51 @@ public class DetailActivity extends AppCompatActivity {
         chapterAdapter.setData(mChapters);
         rcvChapterList.setAdapter(chapterAdapter);
     }
-    String c;
 
-    private void turnOnPopupComment(int gravity) {
-        final Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.layout_dialog_comment);
-        TextView tvContent = dialog.findViewById(R.id.tvContent);
-
-        CommentDAO commentDAO = new CommentDAO(DetailActivity.this);
+    private void updateDialogContent() {
         List<Comment> commentList = commentDAO.getCommentByMangaId(manga.getIdManga());
-//        for(Comment comment : commentList){
-//            c = comment.getComment();
-//        }
-
         StringBuilder stringBuilder = new StringBuilder();
-
         RegisterDAO registerDAO = new RegisterDAO(DetailActivity.this);
-// Loop through the commentList and append each comment to the stringBuilder
+
         for (Comment comment : commentList) {
             String name = registerDAO.getUsernameByUserId(comment.getUserId());
-            String myName = "Tôi";
-
+            String myName = "tôi";
             String nameString = name;
+
             if (LoginActivity.getUserId() == comment.getUserId()) {
                 nameString = myName;
             }
 
-            // Format the name part with a smaller font size
             SpannableString spannableName = new SpannableString(nameString);
             spannableName.setSpan(new RelativeSizeSpan(0.8f), 0, nameString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-            // Append the name and comment parts to the StringBuilder
             stringBuilder.append(spannableName).append(" hiện lên và nói:\n");
             stringBuilder.append(comment.getComment()).append("\n\n");
         }
 
-// Convert the StringBuilder to a String
         String resultString = stringBuilder.toString();
-
-// Set the formatted text to the TextView
         tvContent.setText(resultString);
+    }
+    TextView tvContent;
+    CommentDAO commentDAO;
+    TextView tvUserCmt;
+    RegisterDAO registerDAO = new RegisterDAO(DetailActivity.this);
+    @SuppressLint("SetTextI18n")
+    private void turnOnPopupComment(int gravity) {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.layout_dialog_comment);
+        tvContent = dialog.findViewById(R.id.tvContent);
+        tvUserCmt = dialog.findViewById(R.id.tv_user_cmt);
+
+        commentDAO = new CommentDAO(DetailActivity.this);
+
+        updateDialogContent();
+
+        tvUserCmt.setText("Bình luận\n" + registerDAO.getUsernameByUserId(LoginActivity.getUserId()));
+
+// Convert the StringBuilder to a String
+
 
 
         String storyText = "<h1>Tiêu đề truyện</h1>"
@@ -206,6 +213,19 @@ public class DetailActivity extends AppCompatActivity {
         if (Gravity.CENTER == gravity) {
             dialog.setCancelable(true);
         }
+        EditText etCmt = dialog.findViewById(R.id.et_cmt);
+        Button btCmt = dialog.findViewById(R.id.btn_cmt);
+        btCmt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String cmt = etCmt.getText().toString();
+                commentDAO.addComment(LoginActivity.getUserId(), manga.getIdManga(), cmt);
+                Toast.makeText(DetailActivity.this, "da binh luan", Toast.LENGTH_SHORT).show();
+                updateDialogContent();
+                etCmt.setText("");
+                etCmt.setFocusable(true);
+            }
+        });
         dialog.show();
     }
 

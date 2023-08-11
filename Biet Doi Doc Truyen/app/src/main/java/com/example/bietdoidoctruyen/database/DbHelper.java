@@ -14,7 +14,7 @@ public class DbHelper extends SQLiteOpenHelper {
      * @param context
      */
     public DbHelper(@Nullable Context context) {
-        super(context, "bietgikhong.db", null, 165);
+        super(context, "bietgikhong.db", null, 179);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class DbHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(sql);
         sql = "INSERT INTO REGISTER (Username, Password, avatar) VALUES ('crush my friend', '123', '')";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO REGISTER (Username, Password, avatar) VALUES ('thinhngu', '123', 'file:///storage/emulated/0/Android/data/com.example.bietdoidoctruyen/files/DCIM/IMG_20230724_084059476.jpg')";
+        sql = "INSERT INTO REGISTER (Username, Password, avatar) VALUES ('thinhngu', '123', 'file:///storage/emulated/0/Android/data/com.example.bietdoidoctruyen/files/DCIM/image:126.jpg')";
         sqLiteDatabase.execSQL(sql);
         sql = "INSERT INTO REGISTER (Username, Password, avatar) VALUES ('met moi that su', '1', '')";
         sqLiteDatabase.execSQL(sql);
@@ -58,8 +58,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
 
-
-
         sql = "CREATE TABLE Category (categoryId INTEGER PRIMARY KEY autoincrement, categoryName TEXT)";
         sqLiteDatabase.execSQL(sql);
         sql = "INSERT INTO Category ( categoryName) VALUES ('phiêu lưu')";
@@ -70,39 +68,38 @@ public class DbHelper extends SQLiteOpenHelper {
 
         sql = "INSERT INTO Category ( categoryName) VALUES ('truyện tranh màu')";
         sqLiteDatabase.execSQL(sql);
+//
+//        sql = "INSERT INTO Category ( categoryName) VALUES ('truyện em pé')";
+//        sqLiteDatabase.execSQL(sql);
 
-        sql = "INSERT INTO Category ( categoryName) VALUES ('truyện em pé')";
+        sql = "CREATE TABLE MANGA(mangaId integer primary key autoincrement, mangaName text, image text, description TEXT)";
         sqLiteDatabase.execSQL(sql);
-
-        sql = "CREATE TABLE MANGA(mangaId integer primary key autoincrement, mangaName text, image text, categoryId INTEGER, description TEXT, FOREIGN KEY (categoryId) REFERENCES Category(categoryId))";
-        sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO MANGA ( mangaName, image, categoryId, description) VALUES ('Attack on Titan', 'https://flxt.tmsimg.com/assets/p10701949_b_v9_ah.jpg', 1, 'day la mo ta truyen')";
-        sqLiteDatabase.execSQL(sql);
-
-        sql = "INSERT INTO MANGA ( mangaName, image, categoryId, description) VALUES ('One Piece', 'https://m.media-amazon.com/images/M/MV5BODcwNWE3OTMtMDc3MS00NDFjLWE1OTAtNDU3NjgxODMxY2UyXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_FMjpg_UX1000_.jpg',1, 'day la mo ta truyen')";
+        sql = "INSERT INTO MANGA ( mangaName, image, description) VALUES ('Attack on Titan', 'https://flxt.tmsimg.com/assets/p10701949_b_v9_ah.jpg', 'day la mo ta truyen')";
         sqLiteDatabase.execSQL(sql);
 
-        sql = "INSERT INTO MANGA ( mangaName, image, categoryId, description) VALUES ('League of Legends', 'https://cdn.marvel.com/u/prod/marvel/i/mg/c/90/5e4c16dfc6b56/clean.jpg', 3, 'day la mo ta truyen')";
+        sql = "INSERT INTO MANGA ( mangaName, image, description) VALUES ('One Piece', 'https://m.media-amazon.com/images/M/MV5BODcwNWE3OTMtMDc3MS00NDFjLWE1OTAtNDU3NjgxODMxY2UyXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_FMjpg_UX1000_.jpg', 'day la mo ta truyen')";
         sqLiteDatabase.execSQL(sql);
 
-        sql = "INSERT INTO MANGA ( mangaName, image, categoryId, description) VALUES ('Demon Slayer', 'https://cdn.vnreview.vn/524288_70849781053950_1632413989994496?wt=a81fc22c3ab2d4f89d7680f47a2c281e&rt=04af1758ec6ffc66e44de4b5ecd9fab3&width=1080', 2, 'day la mo ta truyen')";
+        sql = "INSERT INTO MANGA ( mangaName, image, description) VALUES ('League of Legends', 'https://cdn.marvel.com/u/prod/marvel/i/mg/c/90/5e4c16dfc6b56/clean.jpg', 'day la mo ta truyen')";
         sqLiteDatabase.execSQL(sql);
 
-        sql = "INSERT INTO MANGA ( mangaName, image, categoryId, description) VALUES ('One-Punch Man', 'https://m.media-amazon.com/images/M/MV5BZjJlNzE5YzEtYzQwYS00NTBjLTk5YzAtYzUwOWQyM2E3OGI2XkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg', 2, 'day la mo ta truyen')";
-        sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO MANGA ( mangaName, image, categoryId, description) VALUES ('Chainsaw Man', 'https://cdn0.fahasa.com/media/catalog/product/_/c/_chainsaw_man_vol_01_b_a_o_m_t_2_.jpg', 1, 'day la mo ta truyen')";
-        sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO MANGA ( mangaName, image, categoryId, description) VALUES ('Dectective Conan', 'https://nhasachquangloi.vn/pub/media/catalog/product/cache/3bd4b739bad1f096e12e3a82b40e551a/c/o/conan100-limited.jpg', 4, 'day la mo ta truyen')";
-        sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO MANGA ( mangaName, image, categoryId, description) VALUES ('Tam Mao lưu lạc ký', 'https://i7.bumcheo.info/manga/27/27018/img202105050000.thumb_500x.jpg', 4, 'day la mo ta truyen')";
+        sql = "INSERT INTO MANGA ( mangaName, image, description) VALUES ('Demon Slayer', 'https://cdn.vnreview.vn/524288_70849781053950_1632413989994496?wt=a81fc22c3ab2d4f89d7680f47a2c281e&rt=04af1758ec6ffc66e44de4b5ecd9fab3&width=1080', 'day la mo ta truyen')";
         sqLiteDatabase.execSQL(sql);
 
-        sql = "INSERT INTO MANGA ( mangaName, image, categoryId, description) VALUES ('Sherlock Homes', 'https://m.media-amazon.com/images/I/81tNnqcHxlL._AC_UF1000,1000_QL80_.jpg', 1, 'day la mo ta truyen')";
+        sql = "INSERT INTO MANGA ( mangaName, image, description) VALUES ('One-Punch Man', 'https://m.media-amazon.com/images/M/MV5BZjJlNzE5YzEtYzQwYS00NTBjLTk5YzAtYzUwOWQyM2E3OGI2XkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg', 'day la mo ta truyen')";
+        sqLiteDatabase.execSQL(sql);
+        sql = "INSERT INTO MANGA ( mangaName, image, description) VALUES ('Chainsaw Man', 'https://cdn0.fahasa.com/media/catalog/product/_/c/_chainsaw_man_vol_01_b_a_o_m_t_2_.jpg', 'day la mo ta truyen')";
+        sqLiteDatabase.execSQL(sql);
+        sql = "INSERT INTO MANGA ( mangaName, image, description) VALUES ('Dectective Conan', 'https://nhasachquangloi.vn/pub/media/catalog/product/cache/3bd4b739bad1f096e12e3a82b40e551a/c/o/conan100-limited.jpg', 'day la mo ta truyen')";
+        sqLiteDatabase.execSQL(sql);
+        sql = "INSERT INTO MANGA ( mangaName, image, description) VALUES ('Tam Mao lưu lạc ký', 'https://i7.bumcheo.info/manga/27/27018/img202105050000.thumb_500x.jpg', 'day la mo ta truyen')";
+        sqLiteDatabase.execSQL(sql);
+
+        sql = "INSERT INTO MANGA ( mangaName, image, description) VALUES ('Sherlock Homes', 'https://m.media-amazon.com/images/I/81tNnqcHxlL._AC_UF1000,1000_QL80_.jpg', 'day la mo ta truyen')";
         sqLiteDatabase.execSQL(sql);
 
         sql = "CREATE TABLE Category_Manga (categoryId INTEGER, mangaId INTEGER, PRIMARY KEY (mangaId, categoryId), FOREIGN KEY (mangaId) REFERENCES MANGA(mangaId), FOREIGN KEY (categoryId) REFERENCES Category(categoryId))";
         sqLiteDatabase.execSQL(sql);
-
         sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (1, 1)";
         sqLiteDatabase.execSQL(sql);
         sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (1, 2)";
@@ -114,6 +111,13 @@ public class DbHelper extends SQLiteOpenHelper {
         sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (3, 3)";
         sqLiteDatabase.execSQL(sql);
         sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (3, 8)";
+        sqLiteDatabase.execSQL(sql);
+        sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (2, 9)";
+        sqLiteDatabase.execSQL(sql);
+
+        sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (4, 8)";
+        sqLiteDatabase.execSQL(sql);
+        sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (4, 9)";
         sqLiteDatabase.execSQL(sql);
 
 

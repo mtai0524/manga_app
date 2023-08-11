@@ -132,6 +132,19 @@ public class HomeFragment extends Fragment {
         listDataAdapter.addData(listDataGood);
         listDataAdapter.notifyDataSetChanged();
 
+        categoryCheck = 2;
+        List<Manga> mangaDetective = new ArrayList<>();
+        listDataDAO = new ListDataDAO(context);
+        mangaDetective = categoryMangaDAO.getMangaByCategoryId(categoryCheck);
+        ListData listMangaDetective = new ListData();
+        listMangaDetective.setListCategory(mangaDetective);
+        listMangaDetective.setType(ListDataAdapter.TYPE_CATEGORY);
+
+        categoryName = listDataDAO.getCategoryNameById(categoryCheck);
+        listMangaDetective.setCatagoryName(categoryName);
+        listDataAdapter.addData(listMangaDetective);
+        listDataAdapter.notifyDataSetChanged();
+
 
         categoryCheck = 3;
         List<Manga> mangaColor = new ArrayList<>();
@@ -147,18 +160,21 @@ public class HomeFragment extends Fragment {
         listDataAdapter.notifyDataSetChanged();
 
 
-        categoryCheck = 4;
-        List<Manga> mangaChildren = new ArrayList<>();
-        listDataDAO = new ListDataDAO(context);
-        mangaChildren = listDataDAO.getMangaByCategoryId(categoryCheck);
-        ListData listMangaChilren = new ListData();
-        listMangaChilren.setListCategory(mangaChildren);
-        listMangaChilren.setType(ListDataAdapter.TYPE_CATEGORY);
 
-        categoryName = listDataDAO.getCategoryNameById(categoryCheck);
-        listMangaChilren.setCatagoryName(categoryName);
-        listDataAdapter.addData(listMangaChilren);
-        listDataAdapter.notifyDataSetChanged();
+
+//
+//        categoryCheck = 4;
+//        List<Manga> mangaChildren = new ArrayList<>();
+//        listDataDAO = new ListDataDAO(context);
+//        mangaChildren = listDataDAO.getMangaByCategoryId(categoryCheck);
+//        ListData listMangaChildren = new ListData();
+//        listMangaChildren.setListCategory(mangaChildren);
+//        listMangaChildren.setType(ListDataAdapter.TYPE_CATEGORY);
+//
+//        categoryName = listDataDAO.getCategoryNameById(categoryCheck);
+//        listMangaChildren.setCatagoryName(categoryName);
+//        listDataAdapter.addData(listMangaChildren);
+//        listDataAdapter.notifyDataSetChanged();
 
         rcv_data.setAdapter(listDataAdapter);
 
