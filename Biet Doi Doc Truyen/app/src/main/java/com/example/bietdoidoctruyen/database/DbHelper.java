@@ -14,7 +14,7 @@ public class DbHelper extends SQLiteOpenHelper {
      * @param context
      */
     public DbHelper(@Nullable Context context) {
-        super(context, "bietgikhong.db", null, 179);
+        super(context, "bietgikhong.db", null, 182);
     }
 
     @Override
@@ -112,13 +112,10 @@ public class DbHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(sql);
         sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (3, 8)";
         sqLiteDatabase.execSQL(sql);
+
         sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (2, 9)";
         sqLiteDatabase.execSQL(sql);
 
-        sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (4, 8)";
-        sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (4, 9)";
-        sqLiteDatabase.execSQL(sql);
 
 
         sql = "CREATE TABLE Chapter (chapterId INTEGER PRIMARY KEY autoincrement, mangaId INTEGER, chapterName TEXT, FOREIGN KEY (mangaId) REFERENCES MANGA(mangaId))";

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.bietdoidoctruyen.DataChapters;
 import com.example.bietdoidoctruyen.DetailActivity;
+import com.example.bietdoidoctruyen.EditActivity;
 import com.example.bietdoidoctruyen.LoginActivity;
 import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.dao.HistoryDAO;
@@ -76,6 +78,14 @@ public class EditMangaAdapter extends RecyclerView.Adapter<EditMangaAdapter.Cate
 
 
         holder.tvDescriptionItem.setText(manga.getMangaName());
+
+        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickShowDetail(manga);
+            }
+        });
+
         holder.layout_item_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,10 +111,10 @@ public class EditMangaAdapter extends RecyclerView.Adapter<EditMangaAdapter.Cate
 
 
     private void onClickShowDetail(Manga manga){
-        Intent intent = new Intent(mConText, DetailActivity.class);
+        Intent intent = new Intent(mConText, EditActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object_user", manga);
-        bundle.putSerializable("object_chapters", new ArrayList<>(manga.getChapterList()));
+
         intent.putExtras(bundle);
         mConText.startActivity(intent);
     }
@@ -120,12 +130,16 @@ public class EditMangaAdapter extends RecyclerView.Adapter<EditMangaAdapter.Cate
         ImageView imgCategory;
         TextView tvDescriptionItem;
         LinearLayout layout_item_edit;
+        Button btnEdit, btnDel;
         TextView tvChapterName;
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             imgCategory = itemView.findViewById(R.id.img_category);
             tvDescriptionItem = itemView.findViewById(R.id.tv_description_item);
             layout_item_edit = itemView.findViewById(R.id.layout_item_edit);
+
+            btnEdit = itemView.findViewById(R.id.btn_edit_manga);
+            btnDel = itemView.findViewById(R.id.btn_del);
         }
     }
 

@@ -2,6 +2,7 @@ package com.example.bietdoidoctruyen.adapter;
 
 import static android.os.Build.VERSION_CODES.R;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,19 @@ public class CheckBoxCateAdapter extends RecyclerView.Adapter<CheckBoxCateAdapte
         this.options = options;
         selectedOptions = new boolean[options.size()];
     }
+
+    public CheckBoxCateAdapter(List<String> options, List<Integer> selectedIndices) {
+        this.options = options;
+        selectedOptions = new boolean[options.size()];
+
+        for (int index : selectedIndices) {
+            Log.i("INDEX CMM" , String.valueOf(index));
+            if (index >= 0 && index <= selectedOptions.length) {
+                selectedOptions[--index] = true;
+                Log.i("INDEX CMM O TRONG" , String.valueOf(index));
+            }
+        }
+    }
     public boolean[] getSelectedOptions() {
         return selectedOptions;
     }
@@ -38,9 +52,20 @@ public class CheckBoxCateAdapter extends RecyclerView.Adapter<CheckBoxCateAdapte
         String option = options.get(position);
         holder.cbCate.setText(option);
         holder.cbCate.setChecked(selectedOptions[position]);
-        holder.cbCate.setOnCheckedChangeListener((buttonView, isChecked) -> selectedOptions[position] = isChecked);
+        if(holder.cbCate.isChecked()) {
+            holder.cbCate.setEnabled(false);
+        } else {
+            holder.cbCate.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                selectedOptions[position] = isChecked;
+            });
+        }
     }
-
+    public void updateSelectedOptions(List<Integer> selectedCategoryIds) {
+        for (int i = 0; i < options.size(); i++) {
+            selectedOptions[i] = selectedCategoryIds.contains(options.get(i));
+        }
+        notifyDataSetChanged();
+    }
     @Override
     public int getItemCount() {
         return options.size();

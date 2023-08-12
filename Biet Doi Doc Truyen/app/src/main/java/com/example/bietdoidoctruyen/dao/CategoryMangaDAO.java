@@ -19,6 +19,25 @@ public class CategoryMangaDAO {
     public CategoryMangaDAO(Context context) {
         helper = new DbHelper(context);
     }
+    public List<Integer> getCategoryIdsByMangaId(int mangaId) {
+        List<Integer> categoryIds = new ArrayList<>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        String query = "SELECT categoryId FROM Category_Manga WHERE mangaId = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(mangaId)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int categoryId = cursor.getInt(cursor.getColumnIndex("categoryId"));
+                categoryIds.add(categoryId);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return categoryIds;
+    }
 
     public void insertCategoryManga(int categoryId, int mangaId) {
         SQLiteDatabase db = helper.getWritableDatabase();

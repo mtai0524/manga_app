@@ -21,6 +21,19 @@ public class MangaDAO {
         helper = new DbHelper(context);
     }
 
+    public void updateManga(int mangaId,String newName, String newImage, String newDescription) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("mangaName", newName);
+        values.put("image", newImage);
+        values.put("description", newDescription);
+
+        db.update("MANGA", values, "mangaId = ?", new String[]{String.valueOf(mangaId)});
+
+        db.close();
+    }
+
     // trả về id để xác định id của manga vừa mới được thêm vào sqlite
     public long insertManga(String mangaName, String image, String description) {
         SQLiteDatabase db = helper.getWritableDatabase();
