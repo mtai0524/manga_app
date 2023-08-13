@@ -18,20 +18,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-//import com.example.bietdoidoctruyen.AddMangaViewActivity;
-import com.example.bietdoidoctruyen.AddMangaViewActivity;
-import com.example.bietdoidoctruyen.EditMangaActivity;
-import com.example.bietdoidoctruyen.LoginActivity;
-import com.example.bietdoidoctruyen.MangaListSingleton;
+//import com.example.bietdoidoctruyen.activity.AddMangaViewActivity;
+import com.example.bietdoidoctruyen.activity.AddMangaViewActivity;
+import com.example.bietdoidoctruyen.activity.ManagementCategoryActivity;
+import com.example.bietdoidoctruyen.activity.ManagementMangaActivity;
+import com.example.bietdoidoctruyen.activity.LoginActivity;
 import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.adapter.ListDataAdapter;
-import com.example.bietdoidoctruyen.dao.HistoryDAO;
-import com.example.bietdoidoctruyen.dao.MangaDAO;
 import com.example.bietdoidoctruyen.dao.RegisterDAO;
-import com.example.bietdoidoctruyen.model.History;
 import com.example.bietdoidoctruyen.model.ListData;
 import com.example.bietdoidoctruyen.model.Manga;
-import com.google.android.gms.cast.framework.media.ImagePicker;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -47,15 +43,6 @@ public class MyMangaFragment extends Fragment {
     private ImageView imgAvatarUser;
     private TextView addManga;
 
-    private boolean isEdit;
-
-    public boolean getEdit() {
-        return isEdit;
-    }
-
-    public void setEdit(boolean edit) {
-        isEdit = edit;
-    }
 
 
     public static final Set<Manga> mangaHistoryList = new HashSet<>();
@@ -145,11 +132,17 @@ public class MyMangaFragment extends Fragment {
             tvEditManga.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    isEdit = true;
-                    startActivity(new Intent(context, EditMangaActivity.class));
+                    startActivity(new Intent(context, ManagementMangaActivity.class));
                 }
             });
 
+            TextView tvMgCate = view.findViewById(R.id.tv_management_cate);
+            tvMgCate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(context, ManagementCategoryActivity.class));
+                }
+            });
 
             // them sua xoa chuyen vai tro
         }

@@ -19,6 +19,60 @@ public class ListDataDAO {
         helper = new DbHelper(context);
     }
 
+    public List<ListData> getAllCategories() {
+        List<ListData> categories = new ArrayList<>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = null;
+
+        try {
+            String selectQuery = "SELECT * FROM Category";
+            cursor = db.rawQuery(selectQuery, null);
+
+            if (cursor != null && cursor.moveToFirst()) {
+                do {
+                    @SuppressLint("Range") int categoryId = cursor.getInt(cursor.getColumnIndex("categoryId"));
+                    @SuppressLint("Range") String categoryName = cursor.getString(cursor.getColumnIndex("categoryName"));
+                    @SuppressLint("Range") int categoryType = cursor.getInt(cursor.getColumnIndex("type"));
+
+                    ListData category = new ListData(categoryId, categoryName, categoryType);
+                    categories.add(category);
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+
+        return categories;
+    }
+
+
+    public List<String> getCategoryNamesByMangaId(int mangaId) {
+        List<String> categoryNames = new ArrayList<>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        String query = "SELECT c.categoryName FROM Category_Manga cm " +
+                "JOIN Category c ON cm.categoryId = c.categoryId " +
+                "WHERE cm.mangaId = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(mangaId)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") String categoryName = cursor.getString(cursor.getColumnIndex("categoryName"));
+                categoryNames.add(categoryName);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return categoryNames;
+    }
+
     @SuppressLint("Range")
     public int getCategoryIdByName(String categoryName) {
         SQLiteDatabase db = helper.getReadableDatabase();

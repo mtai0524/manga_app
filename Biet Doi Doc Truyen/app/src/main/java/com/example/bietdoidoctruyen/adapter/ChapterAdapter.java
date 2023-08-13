@@ -8,19 +8,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 //import com.example.bietdoidoctruyen.DetailActivity;
-//import com.example.bietdoidoctruyen.MangaContentActivity;
-import com.example.bietdoidoctruyen.MangaContentActivity;
+//import com.example.bietdoidoctruyen.activity.MangaContentActivity;
+import com.example.bietdoidoctruyen.activity.MangaContentActivity;
 import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.model.Chapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterViewHolder> {

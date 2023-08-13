@@ -1,4 +1,4 @@
-package com.example.bietdoidoctruyen;
+package com.example.bietdoidoctruyen.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.dao.RegisterDAO;
 
 public class LoginActivity extends AppCompatActivity {
@@ -40,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private static int userId;
     private void init() {
-        tvLogo = findViewById(R.id.tv_logo);
+//        tvLogo = findViewById(R.id.tv_logo);
         btnLogin = findViewById(R.id.btn_login);
         btnRegister = findViewById(R.id.btn_register);
         registerDao = new RegisterDAO(LoginActivity.this);
@@ -57,18 +58,10 @@ public class LoginActivity extends AppCompatActivity {
         etUserName.setText("minh tai");
         etPassword.setText("admin123");
         showActivityRegister();
-        showMyDialog();
         verifyLoginInformation();
     }
 
-    private void showMyDialog() {
-        tvLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                turnOnPopupLogo(Gravity.CENTER);
-            }
-        });
-    }
+
 
     private void verifyLoginInformation() {
         btnLogin.setOnClickListener(new View.OnClickListener() {

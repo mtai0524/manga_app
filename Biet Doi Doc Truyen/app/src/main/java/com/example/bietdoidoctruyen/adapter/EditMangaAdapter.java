@@ -10,22 +10,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.bietdoidoctruyen.DataChapters;
-import com.example.bietdoidoctruyen.DetailActivity;
-import com.example.bietdoidoctruyen.EditActivity;
-import com.example.bietdoidoctruyen.LoginActivity;
+import com.example.bietdoidoctruyen.activity.DeleteMangaViewActivity;
+import com.example.bietdoidoctruyen.activity.EditActivity;
 import com.example.bietdoidoctruyen.R;
-import com.example.bietdoidoctruyen.dao.HistoryDAO;
-import com.example.bietdoidoctruyen.fragment.HistoryFragment;
 import com.example.bietdoidoctruyen.model.Manga;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EditMangaAdapter extends RecyclerView.Adapter<EditMangaAdapter.CategoryViewHolder> {
@@ -79,39 +74,46 @@ public class EditMangaAdapter extends RecyclerView.Adapter<EditMangaAdapter.Cate
 
         holder.tvDescriptionItem.setText(manga.getMangaName());
 
+        holder.btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickShowDetail(manga, DeleteMangaViewActivity.class);
+            }
+        });
+
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onClickShowDetail(manga);
+                onClickShowDetail(manga, EditActivity.class);
             }
         });
 
-        holder.layout_item_edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(mConText, "clicked", Toast.LENGTH_SHORT).show();
-                onClickShowDetail(manga);
-                HistoryFragment.mangaHistoryList.add(manga);
-//                MangaListSingleton.getInstance().addManga(manga);
-                int userId = LoginActivity.getUserId();
-                int mangaId = manga.getIdManga(); // Điền mã manga của manga được click
-                HistoryDAO historyDAO = new HistoryDAO(mConText);
-                long result = historyDAO.addMangaToHistory(userId, mangaId);
-                if (result != -1) {
-                    Toast.makeText(mConText, "Manga added to history!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(mConText, "Failed to add manga to history.", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-        DataChapters dataChapters = new DataChapters(mConText);
-        dataChapters.showOnChaptersList(manga);
+//        holder.layout_item_edit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(mConText, "clicked", Toast.LENGTH_SHORT).show();
+//                onClickShowDetail(manga, DetailActivity.class);
+//                HistoryFragment.mangaHistoryList.add(manga);
+////                MangaListSingleton.getInstance().addManga(manga);
+//                int userId = LoginActivity.getUserId();
+//                int mangaId = manga.getIdManga(); // Điền mã manga của manga được click
+//                HistoryDAO historyDAO = new HistoryDAO(mConText);
+//                long result = historyDAO.addMangaToHistory(userId, mangaId);
+//                if (result != -1) {
+//                    Toast.makeText(mConText, "Manga added to history!", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Toast.makeText(mConText, "Failed to add manga to history.", Toast.LENGTH_SHORT).show();
+//                }
+//
+////            }
+////        });
+//        DataChapters dataChapters = new DataChapters(mConText);
+//        dataChapters.showOnChaptersList(manga);
     }
 
 
-    private void onClickShowDetail(Manga manga){
-        Intent intent = new Intent(mConText, EditActivity.class);
+    private void onClickShowDetail(Manga manga, Class<?> targetActivityClass){
+        Intent intent = new Intent(mConText, targetActivityClass);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object_user", manga);
 
@@ -127,6 +129,7 @@ public class EditMangaAdapter extends RecyclerView.Adapter<EditMangaAdapter.Cate
     }
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder{
+        CardView cvItem;
         ImageView imgCategory;
         TextView tvDescriptionItem;
         LinearLayout layout_item_edit;
@@ -134,6 +137,7 @@ public class EditMangaAdapter extends RecyclerView.Adapter<EditMangaAdapter.Cate
         TextView tvChapterName;
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
+            cvItem = itemView.findViewById(R.id.cv_item);
             imgCategory = itemView.findViewById(R.id.img_category);
             tvDescriptionItem = itemView.findViewById(R.id.tv_description_item);
             layout_item_edit = itemView.findViewById(R.id.layout_item_edit);

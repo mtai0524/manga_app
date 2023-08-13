@@ -18,34 +18,37 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".DeleteMangaViewActivity"
+            android:name=".activity.ManagementCategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".EditActivity"
+            android:name=".activity.DeleteMangaViewActivity"
             android:exported="false" />
         <activity
-            android:name=".EditMangaActivity"
+            android:name=".activity.EditActivity"
             android:exported="false" />
         <activity
-            android:name=".DiscoverActivity"
+            android:name=".activity.ManagementMangaActivity"
             android:exported="false" />
         <activity
-            android:name=".MangaContentActivity"
+            android:name=".activity.DiscoverActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activity.MangaContentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".AddMangaViewActivity"
+            android:name=".activity.AddMangaViewActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

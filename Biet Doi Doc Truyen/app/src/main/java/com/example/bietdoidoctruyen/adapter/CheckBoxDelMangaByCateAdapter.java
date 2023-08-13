@@ -1,5 +1,6 @@
 package com.example.bietdoidoctruyen.adapter;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,18 +12,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class CheckBoxCateAdapter extends RecyclerView.Adapter<CheckBoxCateAdapter.CheckBoxCateViewHolder> {
+public class CheckBoxDelMangaByCateAdapter extends RecyclerView.Adapter<CheckBoxDelMangaByCateAdapter.CheckBoxDelMangaByCateViewHolder> {
+
     private List<String> options;
     private boolean[] selectedOptions;
+    Context context;
 
-    public CheckBoxCateAdapter(List<String> options) {
+    public CheckBoxDelMangaByCateAdapter(List<String> options) {
         this.options = options;
         selectedOptions = new boolean[options.size()];
     }
 
 
 
-    public CheckBoxCateAdapter(List<String> options, List<Integer> selectedIndices) {
+    public CheckBoxDelMangaByCateAdapter(Context context,List<String> options, List<Integer> selectedIndices) {
         this.options = options;
         selectedOptions = new boolean[options.size()];
 
@@ -37,44 +40,47 @@ public class CheckBoxCateAdapter extends RecyclerView.Adapter<CheckBoxCateAdapte
     public boolean[] getSelectedOptions() {
         return selectedOptions;
     }
+
     @NonNull
     @Override
-    public CheckBoxCateViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CheckBoxDelMangaByCateViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(com.example.bietdoidoctruyen.R.layout.item_check_box_cate, parent, false);
-        return new CheckBoxCateViewHolder(view);
+        return new CheckBoxDelMangaByCateAdapter.CheckBoxDelMangaByCateViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CheckBoxCateViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CheckBoxDelMangaByCateViewHolder holder, int position) {
         String option = options.get(position);
         holder.cbCate.setText(option);
         holder.cbCate.setChecked(selectedOptions[position]);
-        if(holder.cbCate.isChecked()) {
+
+
+        if(!holder.cbCate.isChecked()) {
             holder.cbCate.setEnabled(false);
         } else {
             holder.cbCate.setOnCheckedChangeListener((buttonView, isChecked) -> {
+//                List<Integer> listIds = DeleteMangaViewActivity.listCateIds;
                 selectedOptions[position] = isChecked;
+//                CategoryMangaDAO categoryMangaDAO = new CategoryMangaDAO(context);
+//                if (!isChecked && position < listIds.size()) {
+//                    int categoryId = listIds.get(position);
+//                    categoryMangaDAO.removeMangaByCategoryId(categoryId);
+//                    Log.i("VAAO", "VAO");
+//                }
             });
         }
     }
-    public void updateSelectedOptions(List<Integer> selectedCategoryIds) {
-        for (int i = 0; i < options.size(); i++) {
-            selectedOptions[i] = selectedCategoryIds.contains(options.get(i));
-        }
-        notifyDataSetChanged();
-    }
+
     @Override
     public int getItemCount() {
-        return options.size();
-    }
+            return options.size();
+        }
 
-    public class CheckBoxCateViewHolder extends RecyclerView.ViewHolder{
-
+    protected class CheckBoxDelMangaByCateViewHolder extends RecyclerView.ViewHolder{
         CheckBox cbCate;
-        public CheckBoxCateViewHolder(@NonNull View itemView) {
+        public CheckBoxDelMangaByCateViewHolder(@NonNull View itemView) {
             super(itemView);
             cbCate = itemView.findViewById(com.example.bietdoidoctruyen.R.id.cb_cate);
         }
-
     }
 }

@@ -1,9 +1,10 @@
-package com.example.bietdoidoctruyen;
+package com.example.bietdoidoctruyen.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.bietdoidoctruyen.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DiscoverActivity extends AppCompatActivity {

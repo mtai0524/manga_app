@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddMangaViewActivity">
+    tools:context=".activity.AddMangaViewActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -81,6 +81,10 @@
         tools:layout_editor_absoluteY="414dp" />
 
     <Button
+        android:padding="15dp"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_bg_edit"
+        android:textColor="#F6EBEB"
         android:id="@+id/btn_edit_db"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

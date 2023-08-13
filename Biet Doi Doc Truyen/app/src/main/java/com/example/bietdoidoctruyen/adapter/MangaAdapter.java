@@ -19,13 +19,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.bietdoidoctruyen.DataChapters;
 import com.example.bietdoidoctruyen.DetailActivity;
-import com.example.bietdoidoctruyen.LoginActivity;
-import com.example.bietdoidoctruyen.MangaListSingleton;
+import com.example.bietdoidoctruyen.activity.LoginActivity;
 import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.dao.HistoryDAO;
 import com.example.bietdoidoctruyen.fragment.HistoryFragment;
 import com.example.bietdoidoctruyen.model.Manga;
-import com.example.bietdoidoctruyen.model.Register;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,7 +93,6 @@ public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.CategoryView
                 } else {
                     Toast.makeText(mConText, "Failed to add manga to history.", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
         DataChapters dataChapters = new DataChapters(mConText);

@@ -13,13 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 //import com.example.bietdoidoctruyen.DataGenarator;
-import com.example.bietdoidoctruyen.LoginActivity;
-import com.example.bietdoidoctruyen.MangaListSingleton;
+import com.example.bietdoidoctruyen.activity.LoginActivity;
 import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.dao.HistoryDAO;
 import com.example.bietdoidoctruyen.dao.MangaDAO;
-import com.example.bietdoidoctruyen.fragment.HistoryFragment;
-import com.example.bietdoidoctruyen.fragment.MyMangaFragment;
 import com.example.bietdoidoctruyen.model.History;
 import com.example.bietdoidoctruyen.model.Manga;
 import com.example.bietdoidoctruyen.model.ListData;

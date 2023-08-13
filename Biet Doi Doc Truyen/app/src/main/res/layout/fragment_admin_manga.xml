@@ -89,7 +89,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:text="Thêm truyện"
+                        android:text="Thêm truyện mới"
                         android:textSize="20dp"></TextView>
 
                     <TextView
@@ -97,14 +97,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:text="Sửa truyện"
+                        android:text="Quản lý truyện"
                         android:textSize="20dp"></TextView>
 
                     <TextView
+                        android:id="@+id/tv_management_cate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:text="Xóa truyện"
+                        android:text="Quản lý danh mục"
                         android:textSize="20dp"></TextView>
 
                     <TextView

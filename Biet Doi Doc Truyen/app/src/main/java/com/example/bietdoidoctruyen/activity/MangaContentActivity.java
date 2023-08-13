@@ -1,4 +1,4 @@
-package com.example.bietdoidoctruyen;
+package com.example.bietdoidoctruyen.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.adapter.MangaContentAdapter;
 import com.example.bietdoidoctruyen.dao.MangaContentDAO;
 import com.example.bietdoidoctruyen.model.Chapter;

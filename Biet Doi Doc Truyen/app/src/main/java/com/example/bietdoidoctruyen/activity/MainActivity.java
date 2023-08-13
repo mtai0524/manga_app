@@ -1,4 +1,4 @@
-package com.example.bietdoidoctruyen;
+package com.example.bietdoidoctruyen.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.adapter.ListDataAdapter;
 import com.example.bietdoidoctruyen.adapter.ViewPagerAdapter;
 import com.example.bietdoidoctruyen.fragment.FavoriteFragment;

@@ -14,7 +14,7 @@ public class DbHelper extends SQLiteOpenHelper {
      * @param context
      */
     public DbHelper(@Nullable Context context) {
-        super(context, "bietgikhong.db", null, 182);
+        super(context, "bietgikhong.db", null, 194);
     }
 
     @Override
@@ -58,16 +58,27 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
 
-        sql = "CREATE TABLE Category (categoryId INTEGER PRIMARY KEY autoincrement, categoryName TEXT)";
+        sql = "CREATE TABLE Category (categoryId INTEGER PRIMARY KEY autoincrement, categoryName TEXT, type INTEGER)";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO Category ( categoryName) VALUES ('phiêu lưu')";
-        sqLiteDatabase.execSQL(sql);
-
-        sql = "INSERT INTO Category ( categoryName) VALUES ('trinh thám')";
+        sql = "INSERT INTO Category ( categoryName, type) VALUES ('phiêu lưu', 1)";
         sqLiteDatabase.execSQL(sql);
 
-        sql = "INSERT INTO Category ( categoryName) VALUES ('truyện tranh màu')";
+        sql = "INSERT INTO Category ( categoryName, type) VALUES ('tổng hợp truyện siu hay', 4)";
         sqLiteDatabase.execSQL(sql);
+
+        sql = "INSERT INTO Category ( categoryName, type) VALUES ('truyện tranh màu', 1)";
+        sqLiteDatabase.execSQL(sql);
+
+        sql = "INSERT INTO Category ( categoryName, type) VALUES ('truyện em pé', 1)";
+        sqLiteDatabase.execSQL(sql);
+
+        sql = "INSERT INTO Category ( categoryName, type) VALUES ('trinh thám', 1)";
+        sqLiteDatabase.execSQL(sql);
+
+        sql = "INSERT INTO Category ( categoryName, type) VALUES ('truyện chữ', 1)";
+        sqLiteDatabase.execSQL(sql);
+
+
 //
 //        sql = "INSERT INTO Category ( categoryName) VALUES ('truyện em pé')";
 //        sqLiteDatabase.execSQL(sql);
@@ -115,6 +126,29 @@ public class DbHelper extends SQLiteOpenHelper {
 
         sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (2, 9)";
         sqLiteDatabase.execSQL(sql);
+        sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (2, 8)";
+        sqLiteDatabase.execSQL(sql);
+        sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (2, 4)";
+        sqLiteDatabase.execSQL(sql);
+        sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (2, 2)";
+        sqLiteDatabase.execSQL(sql);
+
+
+        sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (4, 8)";
+        sqLiteDatabase.execSQL(sql);
+        sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (4, 7)";
+        sqLiteDatabase.execSQL(sql);
+        sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (4, 2)";
+        sqLiteDatabase.execSQL(sql);
+
+        sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (5, 7)";
+        sqLiteDatabase.execSQL(sql);
+        sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (5, 9)";
+        sqLiteDatabase.execSQL(sql);
+        sql = "INSERT INTO Category_Manga ( categoryId, mangaId) VALUES (6, 9)";
+        sqLiteDatabase.execSQL(sql);
+
+
 
 
 

@@ -19,6 +19,15 @@ public class CategoryMangaDAO {
     public CategoryMangaDAO(Context context) {
         helper = new DbHelper(context);
     }
+
+
+    public void removeMangaByCategoryIdAndMangaId(int categoryId, int mangaId) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.delete("Category_Manga", "categoryId = ? AND mangaId = ?", new String[]{String.valueOf(categoryId), String.valueOf(mangaId)});
+        db.close();
+    }
+
+
     public List<Integer> getCategoryIdsByMangaId(int mangaId) {
         List<Integer> categoryIds = new ArrayList<>();
         SQLiteDatabase db = helper.getReadableDatabase();

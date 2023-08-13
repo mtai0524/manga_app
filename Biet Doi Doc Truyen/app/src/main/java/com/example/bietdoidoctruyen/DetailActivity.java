@@ -13,7 +13,6 @@ import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.util.Log;
 import android.view.Gravity;
@@ -27,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.bietdoidoctruyen.activity.LoginActivity;
 import com.example.bietdoidoctruyen.adapter.ChapterAdapter;
 import com.example.bietdoidoctruyen.dao.CommentDAO;
 import com.example.bietdoidoctruyen.dao.RegisterDAO;

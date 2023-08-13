@@ -1,22 +1,16 @@
 package com.example.bietdoidoctruyen.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bietdoidoctruyen.LoginActivity;
 import com.example.bietdoidoctruyen.R;
-import com.example.bietdoidoctruyen.dao.HistoryDAO;
-import com.example.bietdoidoctruyen.dao.MangaDAO;
-import com.example.bietdoidoctruyen.model.History;
 import com.example.bietdoidoctruyen.model.ListData;
 import com.example.bietdoidoctruyen.model.Manga;
 

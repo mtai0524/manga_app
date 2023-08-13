@@ -1,4 +1,4 @@
-package com.example.bietdoidoctruyen;
+package com.example.bietdoidoctruyen.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.adapter.CheckBoxCateAdapter;
 import com.example.bietdoidoctruyen.dao.CategoryMangaDAO;
 import com.example.bietdoidoctruyen.dao.ListDataDAO;
@@ -93,8 +94,6 @@ public class AddMangaViewActivity extends AppCompatActivity {
                         Log.d("id manga new cate", String.valueOf(id));
                     }
                 }
-//                listIdCategoryManga.forEach(id ->{
-//                });
             }
         });
     }

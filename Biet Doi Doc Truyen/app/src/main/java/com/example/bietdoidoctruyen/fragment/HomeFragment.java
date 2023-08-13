@@ -91,90 +91,26 @@ public class HomeFragment extends Fragment {
         imageSlider.setImageList(imageList);
 
 //         Layout main
-
+        CategoryMangaDAO categoryMangaDAO = new CategoryMangaDAO(context);
         rcv_data = view.findViewById(R.id.rcv_data);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         rcv_data.setLayoutManager(linearLayoutManager);
 
-        MangaDAO mangaDAO = new MangaDAO(context);
-        List<Manga> mangaList = mangaDAO.getAll();
-        listDataAdapter = new ListDataAdapter(context);
-
-        ListData listData = new ListData();
-        listData.setListCategory(mangaList);
-        listData.setType(ListDataAdapter.TYPE_CATEGORY);
-        listData.setCatagoryName("Tên danh mục");
-        listDataAdapter.addData(listData);
-        listDataAdapter.notifyDataSetChanged();
-
-        // grid layout
-        ListData listDataGird = new ListData();
-        listDataGird.setListCategory(mangaList);
-        listDataGird.setType(ListDataAdapter.TYPE_ITEM);
-        listDataGird.setCatagoryName("Tên danh mục");
-        listDataAdapter.addData(listDataGird);
-        listDataAdapter.notifyDataSetChanged();
-
-        //
-        int categoryCheck = 1;
-        List<Manga> mangaListGood = new ArrayList<>();
         ListDataDAO listDataDAO = new ListDataDAO(context);
+        List<ListData> categories = listDataDAO.getAllCategories();
 
-        CategoryMangaDAO categoryMangaDAO = new CategoryMangaDAO(context);
+        ListDataAdapter listDataAdapter = new ListDataAdapter(context);
 
-        mangaListGood = categoryMangaDAO.getMangaByCategoryId(categoryCheck);
-        ListData listDataGood = new ListData();
-        listDataGood.setListCategory(mangaListGood);
-        listDataGood.setType(ListDataAdapter.TYPE_CATEGORY);
+        for (ListData category : categories) {
+            List<Manga> mangaList = categoryMangaDAO.getMangaByCategoryId(category.getCategoryId());
 
-        String categoryName = listDataDAO.getCategoryNameById(categoryCheck);
-        listDataGood.setCatagoryName(categoryName);
-        listDataAdapter.addData(listDataGood);
-        listDataAdapter.notifyDataSetChanged();
+            ListData listData = new ListData();
+            listData.setListCategory(mangaList);
+            listData.setType(category.getType());
+            listData.setCatagoryName(category.getCatagoryName());
 
-        categoryCheck = 2;
-        List<Manga> mangaDetective = new ArrayList<>();
-        listDataDAO = new ListDataDAO(context);
-        mangaDetective = categoryMangaDAO.getMangaByCategoryId(categoryCheck);
-        ListData listMangaDetective = new ListData();
-        listMangaDetective.setListCategory(mangaDetective);
-        listMangaDetective.setType(ListDataAdapter.TYPE_CATEGORY);
-
-        categoryName = listDataDAO.getCategoryNameById(categoryCheck);
-        listMangaDetective.setCatagoryName(categoryName);
-        listDataAdapter.addData(listMangaDetective);
-        listDataAdapter.notifyDataSetChanged();
-
-
-        categoryCheck = 3;
-        List<Manga> mangaColor = new ArrayList<>();
-        listDataDAO = new ListDataDAO(context);
-        mangaColor = categoryMangaDAO.getMangaByCategoryId(categoryCheck);
-        ListData listMangaColor = new ListData();
-        listMangaColor.setListCategory(mangaColor);
-        listMangaColor.setType(ListDataAdapter.TYPE_CATEGORY);
-
-        categoryName = listDataDAO.getCategoryNameById(categoryCheck);
-        listMangaColor.setCatagoryName(categoryName);
-        listDataAdapter.addData(listMangaColor);
-        listDataAdapter.notifyDataSetChanged();
-
-
-
-
-//
-//        categoryCheck = 4;
-//        List<Manga> mangaChildren = new ArrayList<>();
-//        listDataDAO = new ListDataDAO(context);
-//        mangaChildren = listDataDAO.getMangaByCategoryId(categoryCheck);
-//        ListData listMangaChildren = new ListData();
-//        listMangaChildren.setListCategory(mangaChildren);
-//        listMangaChildren.setType(ListDataAdapter.TYPE_CATEGORY);
-//
-//        categoryName = listDataDAO.getCategoryNameById(categoryCheck);
-//        listMangaChildren.setCatagoryName(categoryName);
-//        listDataAdapter.addData(listMangaChildren);
-//        listDataAdapter.notifyDataSetChanged();
+            listDataAdapter.addData(listData);
+        }
 
         rcv_data.setAdapter(listDataAdapter);
 

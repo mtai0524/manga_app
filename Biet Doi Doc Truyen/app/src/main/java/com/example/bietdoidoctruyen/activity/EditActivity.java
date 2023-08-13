@@ -1,9 +1,8 @@
-package com.example.bietdoidoctruyen;
+package com.example.bietdoidoctruyen.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.adapter.CheckBoxCateAdapter;
 import com.example.bietdoidoctruyen.dao.CategoryMangaDAO;
 import com.example.bietdoidoctruyen.dao.ListDataDAO;
@@ -28,6 +29,12 @@ public class EditActivity extends AppCompatActivity {
     private EditText insertMangaDescription;
     private Button btnEditDb;
     List<Integer> options = new ArrayList<>();
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,8 +99,14 @@ public class EditActivity extends AppCompatActivity {
                         Log.d("id manga new cate", String.valueOf(id));
                     }
                 }
+                CategoryMangaDAO categoryMangaDAO = new CategoryMangaDAO(EditActivity.this);
+                List<Integer> listCateIds = categoryMangaDAO.getCategoryIdsByMangaId(manga.getIdManga());
 
-                startActivity(new Intent(EditActivity.this, EditMangaActivity.class));
+                CheckBoxCateAdapter adapter = new CheckBoxCateAdapter(options, listCateIds);
+                recyclerView.setLayoutManager(new LinearLayoutManager(EditActivity.this));
+                recyclerView.setAdapter(adapter);
+                Toast.makeText(EditActivity.this, "sửa thành công", Toast.LENGTH_SHORT).show();
+                finish(); // Quay trở lại activity trước đó
             }
         });
     }

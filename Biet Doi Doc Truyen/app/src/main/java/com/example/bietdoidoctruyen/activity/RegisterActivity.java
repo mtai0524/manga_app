@@ -1,4 +1,4 @@
-package com.example.bietdoidoctruyen;
+package com.example.bietdoidoctruyen.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.dao.RegisterDAO;
 import com.example.bietdoidoctruyen.database.DbHelper;
 import com.example.bietdoidoctruyen.model.Register;

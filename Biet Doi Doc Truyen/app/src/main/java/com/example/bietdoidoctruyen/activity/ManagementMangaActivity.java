@@ -1,4 +1,4 @@
-package com.example.bietdoidoctruyen;
+package com.example.bietdoidoctruyen.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.adapter.EditDataAdapter;
 import com.example.bietdoidoctruyen.adapter.ListDataAdapter;
 import com.example.bietdoidoctruyen.dao.MangaDAO;
@@ -17,15 +18,14 @@ import com.example.bietdoidoctruyen.model.Manga;
 
 import java.util.List;
 
-public class EditMangaActivity extends AppCompatActivity {
+public class ManagementMangaActivity extends AppCompatActivity {
     private RecyclerView recvEditManga;
     EditDataAdapter listDataAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_manga);
-
-
 
         recvEditManga = findViewById(R.id.recv_edit_manga);
 
@@ -42,7 +42,10 @@ public class EditMangaActivity extends AppCompatActivity {
         listDataAdapter.addData(listDataGird);
         listDataAdapter.notifyDataSetChanged();
         recvEditManga.setAdapter(listDataAdapter);
-
-
+    }
+    @Override
+    public void onBackPressed() {
+        // Gọi finish để đóng Activity và loại bỏ khỏi back stack
+        finish();
     }
 }

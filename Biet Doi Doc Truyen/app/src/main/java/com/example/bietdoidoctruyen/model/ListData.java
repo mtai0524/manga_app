@@ -7,22 +7,16 @@ public class ListData {
 
     private int categoryId;
 
-
-
     private int type;
     private List<Manga> listManga;
     private List<User> listUser;
     private String categoryName;
 
-    public ListData(int categoryId, int type, List<Manga> listManga, List<User> listUser, String catagoryName) {
+
+    public ListData(int categoryId,String categoryName,  int type) {
         this.categoryId = categoryId;
         this.type = type;
-        this.listManga = listManga;
-        this.listUser = listUser;
-        this.categoryName = catagoryName;
-    }
-    public ListData(String catagoryName) {
-        this.categoryName = catagoryName;
+        this.categoryName = categoryName;
     }
 
     @Override
@@ -40,12 +34,6 @@ public class ListData {
     }
 
 
-    public ListData(int type, List<Manga> listManga, List<User> listUser, String catagoryName) {
-        this.type = type;
-        this.listManga = listManga;
-        this.listUser = listUser;
-        this.categoryName = catagoryName;
-    }
 
     public int getCategoryId() {
         return categoryId;
