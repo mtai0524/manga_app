@@ -62,15 +62,18 @@ public class DeleteMangaViewActivity extends AppCompatActivity {
         btnDeleteMangaDb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                for (int i = 0; i < adapter.getSelectedOptions().length; i++) {
+                int i = 0;
+                do {
                     if (!adapter.getSelectedOptions()[i]) {
                         int checkIn = listCateIds.get(i);
                         categoryMangaDAO.removeMangaByCategoryIdAndMangaId(checkIn, manga.getIdManga()); // lỗi
-                        break;
+                        Toast.makeText(DeleteMangaViewActivity.this, "xoa thanh cong", Toast.LENGTH_SHORT).show();
+                        finish();
+                        return;
                     }
-                }
-                Toast.makeText(DeleteMangaViewActivity.this, "xoa thanh cong", Toast.LENGTH_SHORT).show();
-                finish();
+                    i++;
+                } while (i < adapter.getSelectedOptions().length);
+
             }
         });
     }
