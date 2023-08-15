@@ -19,6 +19,46 @@ public class MangaDAO {
 
     public MangaDAO(Context context) {
         helper = new DbHelper(context);
+
+    }
+    public List<Integer> getAllMangaIds() {
+        List<Integer> mangaIds = new ArrayList<>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        String query = "SELECT mangaId FROM MANGA";
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int mangaId = cursor.getInt(cursor.getColumnIndex("mangaId"));
+                mangaIds.add(mangaId);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return mangaIds;
+    }
+
+    public List<String> getAllMangaNames() {
+        List<String> mangaNames = new ArrayList<>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        String query = "SELECT mangaName FROM MANGA";
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") String mangaName = cursor.getString(cursor.getColumnIndex("mangaName"));
+                mangaNames.add(mangaName);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return mangaNames;
     }
 
     public void updateManga(int mangaId,String newName, String newImage, String newDescription) {

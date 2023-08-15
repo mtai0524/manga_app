@@ -14,21 +14,24 @@ public class DbHelper extends SQLiteOpenHelper {
      * @param context
      */
     public DbHelper(@Nullable Context context) {
-        super(context, "bietgikhong.db", null, 194);
+        super(context, "bietgikhong.db", null, 209);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql = "CREATE TABLE REGISTER(userId INTEGER PRIMARY KEY autoincrement ,Username text, Password text, avatar TEXT)";
+        String sql = "CREATE TABLE REGISTER(userId INTEGER PRIMARY KEY autoincrement ,Username text, Password text, avatar TEXT, role TEXT)";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO REGISTER (Username, Password, avatar) VALUES ('minh tai', 'admin123', 'file:///storage/emulated/0/Android/data/com.example.bietdoidoctruyen/files/DCIM/IMG_20230724_084059476.jpg')";
+        sql = "INSERT INTO REGISTER (Username, Password, avatar, role) VALUES ('minh tai', 'admin123', 'file:///storage/emulated/0/Android/data/com.example.bietdoidoctruyen/files/DCIM/IMG_20230724_084059476.jpg', 'admin tối cao')";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO REGISTER (Username, Password, avatar) VALUES ('crush my friend', '123', '')";
+        sql = "INSERT INTO REGISTER (Username, Password, avatar, role) VALUES ('cdmtm', '1', 'file:///storage/emulated/0/Android/data/com.example.bietdoidoctruyen/files/DCIM/IMG_20230815_122103926.jpg', 'admin')";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO REGISTER (Username, Password, avatar) VALUES ('thinhngu', '123', 'file:///storage/emulated/0/Android/data/com.example.bietdoidoctruyen/files/DCIM/image:126.jpg')";
+        sql = "INSERT INTO REGISTER (Username, Password, avatar, role) VALUES ('crush my friend', '123', 'file:///storage/emulated/0/Android/data/com.example.bietdoidoctruyen/files/DCIM/IMG_20230815_122135995.jpg', 'user')";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO REGISTER (Username, Password, avatar) VALUES ('met moi that su', '1', '')";
+        sql = "INSERT INTO REGISTER (Username, Password, avatar, role) VALUES ('thinhngu', '123', 'file:///storage/emulated/0/Android/data/com.example.bietdoidoctruyen/files/DCIM/IMG_20230815_122020924.jpg', 'user')";
         sqLiteDatabase.execSQL(sql);
+        sql = "INSERT INTO REGISTER (Username, Password, avatar, role) VALUES ('met moi that su', '1', 'file:///storage/emulated/0/Android/data/com.example.bietdoidoctruyen/files/DCIM/IMG_20230815_150138066.jpg', 'user')";
+        sqLiteDatabase.execSQL(sql);
+
 
         sql = "CREATE TABLE Comment(cmtId INTEGER PRIMARY KEY autoincrement ,userId INTERGER, mangaId INTERGER, comment TEXT, FOREIGN KEY (userId) REFERENCES REGISTER(userId), FOREIGN KEY (mangaId) REFERENCES Manga(mangaId))";
         sqLiteDatabase.execSQL(sql);

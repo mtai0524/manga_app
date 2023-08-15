@@ -5,4 +5,6 @@
     <string name="action_history">history</string>
     <string name="action_myManga">my manga</string>
     <string name="link">https://mangaplus.shueisha.co.jp/drm/title/100228/title_thumbnail_portrait_list/260897.jpg</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

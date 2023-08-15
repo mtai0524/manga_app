@@ -19,8 +19,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 //import com.example.bietdoidoctruyen.activity.AddMangaViewActivity;
-import com.example.bietdoidoctruyen.AddCateViewActivity;
-import com.example.bietdoidoctruyen.activity.AddMangaViewActivity;
+import com.example.bietdoidoctruyen.ViewTabLayoutActivity;
+import com.example.bietdoidoctruyen.activity.AddCateViewActivity;
+import com.example.bietdoidoctruyen.ManagementUserActivity;
 import com.example.bietdoidoctruyen.activity.ManagementCategoryActivity;
 import com.example.bietdoidoctruyen.activity.ManagementMangaActivity;
 import com.example.bietdoidoctruyen.activity.LoginActivity;
@@ -43,7 +44,6 @@ public class MyMangaFragment extends Fragment {
     private TextView tvLogout;
     private ImageView imgAvatarUser;
     private TextView addManga;
-
 
 
     public static final Set<Manga> mangaHistoryList = new HashSet<>();
@@ -119,14 +119,18 @@ public class MyMangaFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if(LoginActivity.getUserId() == 1){
+        RegisterDAO registerDAO = new RegisterDAO(context);
+        String role = registerDAO.getRoleByUserId(LoginActivity.getUserId());
+        if(role.equals("admin") || role.equals("admin tối cao")){
             view = inflater.inflate(R.layout.fragment_admin_manga, container, false);
+            Log.i("ROLE", role);
             // admin
             TextView tv = view.findViewById(R.id.tv_admin_role);
             tv.setText("admin cdmm");
             addManga = view.findViewById(R.id.tv_addManga); //nó là của ad
             addManga.setOnClickListener(view1 -> {
-                startActivity((new Intent(context, AddMangaViewActivity.class)));
+//                startActivity((new Intent(context, AddMangaViewActivity.class)));
+                startActivity((new Intent(context, ViewTabLayoutActivity.class)));
             });
 
             TextView tvEditManga = view.findViewById(R.id.tv_edit_manga);
@@ -153,6 +157,15 @@ public class MyMangaFragment extends Fragment {
                 }
             });
 
+
+            TextView tv_management_user = view.findViewById(R.id.tv_management_user);
+            tv_management_user.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(context, ManagementUserActivity.class));
+                }
+            });
+
             // them sua xoa chuyen vai tro
         }
         else{
@@ -172,6 +185,7 @@ public class MyMangaFragment extends Fragment {
             if (imageUriString != null) {
                 imageUri = Uri.parse(imageUriString);
                 // Gắn ảnh lên ImageView từ Uri đã lưu trước đó
+
                 imgAvatarUser.setImageURI(imageUri);
                 Log.i("AVATAR", imageUri.toString());
             }
@@ -179,7 +193,7 @@ public class MyMangaFragment extends Fragment {
         else {
             // Nếu không có Uri của avatar trong savedInstanceState, lấy từ SQLite dựa vào userId
             int userId = LoginActivity.getUserId();
-            RegisterDAO registerDAO = new RegisterDAO(context);
+            registerDAO = new RegisterDAO(context);
             String avatarUriString = registerDAO.getAvatarUriByUserId(userId);
             if (avatarUriString != null) {
                 imageUri = Uri.parse(avatarUriString);

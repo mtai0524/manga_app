@@ -60,6 +60,7 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints">
 
+
             <Button
                 android:id="@+id/btn_edit_manga"
                 android:layout_width="0dp"
@@ -83,6 +84,7 @@
                 android:textColor="#F6EBEB"></Button>
 
         </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

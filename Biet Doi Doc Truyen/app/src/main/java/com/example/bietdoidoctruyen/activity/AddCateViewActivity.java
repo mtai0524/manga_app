@@ -1,4 +1,4 @@
-package com.example.bietdoidoctruyen;
+package com.example.bietdoidoctruyen.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.bietdoidoctruyen.activity.ManagementCategoryActivity;
+import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.dao.ListDataDAO;
 
 import java.util.ArrayList;

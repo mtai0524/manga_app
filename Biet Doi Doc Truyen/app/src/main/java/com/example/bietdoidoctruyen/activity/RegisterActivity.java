@@ -39,8 +39,9 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 username = etUsername.getText().toString();
                 password = etPassword.getText().toString();
+                String role = "user";
                 comfirmPassword = etConfirm.getText().toString();
-                register = new Register(username, password);
+                register = new Register(username, password, role);
                 if (username.equals("") || password.equals("") || comfirmPassword.equals("")) {
                     Toast.makeText(RegisterActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 } else {

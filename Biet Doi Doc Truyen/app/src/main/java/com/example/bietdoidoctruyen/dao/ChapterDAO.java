@@ -1,6 +1,7 @@
 package com.example.bietdoidoctruyen.dao;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -42,6 +43,15 @@ public class ChapterDAO {
 
         cursor.close();
         return chapters;
+    }
+
+    public void addChapter(int mangaId, String chapterName) {
+        ContentValues values = new ContentValues();
+        values.put("mangaId", mangaId);
+        values.put("chapterName", chapterName);
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        db.replace("Chapter", null, values);
     }
 
 }

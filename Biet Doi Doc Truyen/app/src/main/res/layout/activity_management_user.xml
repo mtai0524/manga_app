@@ -2,15 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activity.ManagementCategoryActivity">
-
+    tools:context=".ManagementUserActivity">
     <ListView
-        android:layout_marginBottom="10dp"
-        android:layout_margin = "20dp"
-        android:id="@+id/lv_cate"
+        android:padding="20dp"
+        android:dividerHeight="15dp"
+        android:layout_margin="15dp"
+        android:divider="@android:color/transparent"
+        android:id="@+id/lv_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </ListView>

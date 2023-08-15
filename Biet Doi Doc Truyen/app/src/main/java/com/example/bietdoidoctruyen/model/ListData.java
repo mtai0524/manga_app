@@ -13,6 +13,10 @@ public class ListData {
     private String categoryName;
 
 
+    public ListData (String categoryName){
+        this.categoryName = categoryName;
+    }
+
     public ListData(int categoryId,String categoryName,  int type) {
         this.categoryId = categoryId;
         this.type = type;

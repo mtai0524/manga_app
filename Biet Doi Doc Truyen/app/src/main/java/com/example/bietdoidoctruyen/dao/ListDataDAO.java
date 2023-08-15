@@ -19,6 +19,41 @@ public class ListDataDAO {
     public ListDataDAO(Context context) {
         helper = new DbHelper(context);
     }
+    public void deleteCategoryById(int categoryId) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.delete("Category", "categoryId = ?", new String[]{String.valueOf(categoryId)});
+        db.close();
+    }
+    public List<String> getAllCategoryNames() {
+        List<String> categoryNames = new ArrayList<>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        String query = "SELECT categoryName FROM Category";
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") String categoryName = cursor.getString(cursor.getColumnIndex("categoryName"));
+                categoryNames.add(categoryName);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return categoryNames;
+    }
+
+    public void updateCategoryName(int categoryId, String newCategoryName) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("categoryName", newCategoryName);
+
+        db.update("Category", values, "categoryId = ?", new String[]{String.valueOf(categoryId)});
+
+        db.close();
+    }
 
     public long insertCategory(String categoryName, int type) {
         SQLiteDatabase db = helper.getWritableDatabase();

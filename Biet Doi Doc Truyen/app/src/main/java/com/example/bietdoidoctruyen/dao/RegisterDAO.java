@@ -10,14 +10,77 @@ import com.example.bietdoidoctruyen.database.DbHelper;
 import com.example.bietdoidoctruyen.model.Register;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RegisterDAO {
     DbHelper helper;
 
+
+
+
     public RegisterDAO(Context context) {
         helper = new DbHelper(context);
+
+    }
+    public void deleteUserById(int userId) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.delete("REGISTER", "userId = ?", new String[]{String.valueOf(userId)});
+        db.close();
+    }
+    public void updateRoleByUserId(int userId, String newRole) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("role", newRole);
+
+        db.update("REGISTER", values, "userId = ?", new String[]{String.valueOf(userId)});
+
+        db.close();
     }
 
+    public List<Register> getAllRegisters2() {
+        List<Register> registerList = new ArrayList<>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        String query = "SELECT * FROM REGISTER";
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int userId = cursor.getInt(cursor.getColumnIndex("userId"));
+
+                @SuppressLint("Range") String username = cursor.getString(cursor.getColumnIndex("Username"));
+                @SuppressLint("Range") String avatarUri = cursor.getString(cursor.getColumnIndex("avatar"));
+                @SuppressLint("Range") String role = cursor.getString(cursor.getColumnIndex("role"));
+
+                Register register = new Register(userId,username, avatarUri, role);
+                registerList.add(register);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return registerList;
+    }
+
+    @SuppressLint("Range")
+    public String getRoleByUserId(int userId) {
+        String role = null;
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        String query = "SELECT role FROM REGISTER WHERE userId = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(userId)});
+
+        if (cursor.moveToFirst()) {
+            role = cursor.getString(cursor.getColumnIndex("role"));
+        }
+
+        cursor.close();
+        db.close();
+
+        return role;
+    }
     @SuppressLint("Range")
     public String getAvatarUriByUserId(int userId) {
         SQLiteDatabase db = helper.getReadableDatabase();
@@ -45,24 +108,24 @@ public class RegisterDAO {
         return numRowsUpdated > 0;
     }
 
-    public ArrayList<Register> getAll() {
-        ArrayList<Register> list = new ArrayList<>();
-        SQLiteDatabase database = helper.getReadableDatabase();
-        String sql = "SELECT * FROM REGISTER";
-        Cursor cs = database.rawQuery(sql, null);
-        cs.moveToFirst();
-        while (!cs.isAfterLast()) {
-            int id = cs.getInt(0);
-            String username = cs.getString(1);
-            String password = cs.getString(2);
-            Register reg = new Register(id ,username, password);
-            list.add(reg);
-            cs.moveToNext();
-        }
-        cs.close();
-        database.close();
-        return list;
-    }
+//    public ArrayList<Register> getAll() {
+//        ArrayList<Register> list = new ArrayList<>();
+//        SQLiteDatabase database = helper.getReadableDatabase();
+//        String sql = "SELECT * FROM REGISTER";
+//        Cursor cs = database.rawQuery(sql, null);
+//        cs.moveToFirst();
+//        while (!cs.isAfterLast()) {
+//            int id = cs.getInt(0);
+//            String username = cs.getString(1);
+//            String password = cs.getString(2);
+//            Register reg = new Register(id ,username, password);
+//            list.add(reg);
+//            cs.moveToNext();
+//        }
+//        cs.close();
+//        database.close();
+//        return list;
+//    }
     @SuppressLint("Range")
     public String getUsernameByUserId(int userId) {
         String username = null;
@@ -130,6 +193,7 @@ public class RegisterDAO {
         ContentValues contentValues = new ContentValues();
         contentValues.put("Username", register.getUsername());
         contentValues.put("Password", register.getPassword());
+        contentValues.put("role", register.getRole());
         long row = MyDB.insert("REGISTER", null, contentValues);
         MyDB.close(); // phai dong ket noi
         return row > 0; // neu row > 0 thi tra true , con k thi false

@@ -31,6 +31,7 @@
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/drawable/btn_bg_edit.xml" value="0.1805" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/drawable/custom_ripper.xml" value="0.105" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/drawable/img_circle.xml" value="0.108" />
+        <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/activity_add_cate_view.xml" value="0.35104166666666664" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/activity_add_manga_view.xml" value="0.35104166666666664" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/activity_delete_manga_view.xml" value="0.27291666666666664" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/activity_detail.xml" value="0.19010416666666666" />
@@ -41,9 +42,15 @@
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/activity_managament_category.xml" value="0.25" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/activity_management_cate.xml" value="0.36666666666666664" />
+        <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/activity_management_user.xml" value="0.22" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/activity_manga_content.xml" value="0.36666666666666664" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/activity_register.xml" value="0.36666666666666664" />
+        <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/activity_view_tab_layout.xml" value="0.18" />
+        <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/add_view_fragment.xml" value="0.24947916666666667" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/details_manga.xml" value="0.19010416666666666" />
+        <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/fragment_add_chapter.xml" value="0.2" />
+        <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/fragment_add_content.xml" value="0.36666666666666664" />
+        <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/fragment_add_manga.xml" value="0.36666666666666664" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/fragment_admin_manga.xml" value="0.25" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/fragment_favorite.xml" value="0.27741935483870966" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/fragment_history.xml" value="0.22" />
@@ -52,6 +59,8 @@
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/item_category.xml" value="0.29791666666666666" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/item_category_edit.xml" value="0.33" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/item_check_box_cate.xml" value="0.33697916666666666" />
+        <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/item_list_chapter.xml" value="0.35104166666666664" />
+        <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/item_management_user.xml" value="0.33" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/item_manga_content.xml" value="0.14" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/item_user.xml" value="0.25" />
         <entry key="..\:/Biet Doi Doc Truyen/app/src/main/res/layout/layout_dialog_comment.xml" value="0.28958333333333336" />
