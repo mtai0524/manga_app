@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 //import com.example.bietdoidoctruyen.activity.AddMangaViewActivity;
+import com.example.bietdoidoctruyen.AddCateViewActivity;
 import com.example.bietdoidoctruyen.activity.AddMangaViewActivity;
 import com.example.bietdoidoctruyen.activity.ManagementCategoryActivity;
 import com.example.bietdoidoctruyen.activity.ManagementMangaActivity;
@@ -141,6 +142,14 @@ public class MyMangaFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     startActivity(new Intent(context, ManagementCategoryActivity.class));
+                }
+            });
+
+            TextView tv_add_cate = view.findViewById(R.id.tv_add_cate);
+            tv_add_cate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(context, AddCateViewActivity.class));
                 }
             });
 

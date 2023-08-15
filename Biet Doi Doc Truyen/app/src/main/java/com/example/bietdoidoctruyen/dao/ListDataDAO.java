@@ -1,6 +1,7 @@
 package com.example.bietdoidoctruyen.dao;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,6 +18,16 @@ public class ListDataDAO {
 
     public ListDataDAO(Context context) {
         helper = new DbHelper(context);
+    }
+
+    public long insertCategory(String categoryName, int type) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("categoryName", categoryName);
+        values.put("type", type);
+        long categoryId = db.replace("Category", null, values);
+        db.close();
+        return categoryId;
     }
 
     public List<ListData> getAllCategories() {
