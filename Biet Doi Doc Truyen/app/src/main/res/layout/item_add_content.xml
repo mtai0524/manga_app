@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_name_chapter"
+        android:text="Ten chapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:maxHeight="120dp"
+            android:ellipsize="middle"
+            android:id="@+id/et_path_content"
+            android:hint="đường dẫn html chapter"
+            android:layout_width="200dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+        </EditText>
+
+        <Button
+            android:id="@+id/btn_edit_add_content"
+            android:background="@drawable/btn_bg_add"
+            android:textColor="@color/color_button_text"
+            android:textAllCaps="false"
+            android:layout_width="52dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="edit img"></Button>
+
+        <Button
+            android:layout_marginLeft="5dp"
+            android:id="@+id/btn_edit_add_content_txt"
+            android:background="@drawable/btn_bg_add"
+            android:textColor="@color/color_button_text"
+            android:textAllCaps="false"
+            android:layout_width="52dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="edit txt"></Button>
+    </LinearLayout>
+
+</LinearLayout>

@@ -12,6 +12,7 @@
         tools:ignore="WebViewLayout">
 
 
+
         <EditText
             android:background="@android:color/transparent"
             android:id="@+id/tv_manga_text"

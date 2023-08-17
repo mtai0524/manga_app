@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -102,11 +103,13 @@ public class MangaContentAdapter extends RecyclerView.Adapter<MangaContentAdapte
         private WebView imgMangaContent;
         private LinearLayout layoutItemMangaContent;
         private EditText tvMangaTxt;
+
         public MangaContentHolder(@NonNull View itemView) {
             super(itemView);
             imgMangaContent = itemView.findViewById(R.id.img_manga_content);
             layoutItemMangaContent = itemView.findViewById(R.id.layout_item_manga_content);
             tvMangaTxt = itemView.findViewById(R.id.tv_manga_text);
+
         }
     }
 }

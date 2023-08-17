@@ -19,7 +19,52 @@ public class ChapterDAO {
     }
 
     // Constructor
+    @SuppressLint("Range")
+    public List<Integer> getChapterIdsByMangaId(int mangaId) {
+        List<Integer> chapterIds = new ArrayList<>();
+        String query = "SELECT chapterId FROM Chapter WHERE mangaId = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(mangaId)});
 
+        if (cursor.moveToFirst()) {
+            do {
+                int chapterId = cursor.getInt(cursor.getColumnIndex("chapterId"));
+                chapterIds.add(chapterId);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return chapterIds;
+    }
+
+
+    @SuppressLint("Range")
+    public List<String> getChapterNamesForManga(int mangaId) {
+        List<String> chapterNames = new ArrayList<>();
+        String query = "SELECT chapterName FROM Chapter WHERE mangaId = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(mangaId)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                String chapterName = cursor.getString(cursor.getColumnIndex("chapterName"));
+                chapterNames.add(chapterName);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return chapterNames;
+    }
+    public void updateChapterByChapterId(int chapterId, String chapterName) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("chapterName", chapterName);
+
+        db.update("Chapter", values, "chapterId = ?", new String[]{String.valueOf(chapterId)});
+
+        db.close();
+    }
 
     // Phương thức để lấy danh sách các Chapter thuộc về một Manga cụ thể dựa vào mangaId
 

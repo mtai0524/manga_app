@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.bietdoidoctruyen.activity.LoginActivity;
 import com.example.bietdoidoctruyen.adapter.ChapterAdapter;
+import com.example.bietdoidoctruyen.dao.ChapterDAO;
 import com.example.bietdoidoctruyen.dao.CommentDAO;
 import com.example.bietdoidoctruyen.dao.RegisterDAO;
 import com.example.bietdoidoctruyen.model.Comment;
@@ -136,11 +137,15 @@ public class DetailActivity extends AppCompatActivity {
         }
 
 
+
+        ChapterDAO chapterDAO = new ChapterDAO(DetailActivity.this);
+        List<Chapter> chapterList = chapterDAO.getChaptersForManga(manga.getIdManga());
+
         rcvChapterList = findViewById(R.id.rcv_chapter_list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rcvChapterList.setLayoutManager(linearLayoutManager);
         ChapterAdapter chapterAdapter = new ChapterAdapter(this);
-        chapterAdapter.setData(mChapters);
+        chapterAdapter.setData(chapterList);
         rcvChapterList.setAdapter(chapterAdapter);
     }
 

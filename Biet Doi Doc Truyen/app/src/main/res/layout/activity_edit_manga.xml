@@ -6,12 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activity.ManagementMangaActivity">
-    <TextView
-        android:text="hello"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </TextView>
+
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="-15dp"
         android:id="@+id/recv_edit_manga"
         android:layout_width="match_parent"

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.bietdoidoctruyen.R;
@@ -45,7 +46,7 @@ public class ListViewChapterAdapter extends BaseAdapter {
             holder = new ListViewChapterHolder();
             LayoutInflater layoutInflater = ((Activity)context).getLayoutInflater();
             view = layoutInflater.inflate(R.layout.item_list_chapter, null);
-            holder.tv_chapter_name_view = view.findViewById(R.id.tv_chapter_name_view);
+            holder.et_chapter_name_view = view.findViewById(R.id.tv_chapter_name_view);
             holder.btn_edit_chapter = view.findViewById(R.id.btn_edit_chapter);
 
 
@@ -59,11 +60,14 @@ public class ListViewChapterAdapter extends BaseAdapter {
             holder = (ListViewChapterHolder)view.getTag();
         }
         ChapterDAO chapterDAO = new ChapterDAO(context);
-        holder.tv_chapter_name_view.setText(chapterList.get(i).getChapterName());
+        holder.et_chapter_name_view.setText(chapterList.get(i).getChapterName());
         holder.btn_edit_chapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                String name = holder.et_chapter_name_view.getText().toString();
+                chapterDAO.updateChapterByChapterId(chapterList.get(i).getChapterId(), name);
+                notifyDataSetChanged();
+                chapterList.get(i).setChapterName(name);
             }
         });
 
@@ -71,6 +75,6 @@ public class ListViewChapterAdapter extends BaseAdapter {
     }
 }
 class ListViewChapterHolder{
-    TextView tv_chapter_name_view;
+    EditText et_chapter_name_view;
     Button btn_edit_chapter;
 }

@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="339dp"
-        android:layout_height="397dp"
+        android:layout_height="420dp"
         android:layout_margin="20dp"
         android:background="@drawable/bg_login"
         android:gravity="center"
@@ -64,43 +64,37 @@
             tools:layout_editor_absoluteY="457dp" />
 
         <LinearLayout
+            android:layout_marginTop="-10dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:orientation="horizontal">
 
-            <soup.neumorphism.NeumorphButton
-                app:neumorph_backgroundColor="@color/cardview_shadow_start_color"
+            <Button
                 android:id="@+id/btn_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_bg_add"
                 android:gravity="center"
-                android:paddingLeft="50dp"
-                android:paddingTop="20dp"
-                android:paddingRight="50dp"
-                android:paddingBottom="20dp"
                 android:text="Login"
-                android:textSize="20dp"
-                android:textStyle="bold"></soup.neumorphism.NeumorphButton>
+                android:textColor="@color/bg_main"
+                android:textSize="15dp"
+                android:textStyle="bold"></Button>
 
-
-            <soup.neumorphism.NeumorphButton
-                app:neumorph_backgroundColor="@color/cast_intro_overlay_button_background_color"
-
+            <Button
                 android:id="@+id/btn_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/btn_bg_edit"
                 android:gravity="center"
-                android:paddingLeft="40dp"
-                android:paddingTop="20dp"
-                android:paddingRight="40dp"
-                android:paddingBottom="20dp"
                 android:text="Sign up"
-                android:textSize="20dp"
-                android:textStyle="bold"></soup.neumorphism.NeumorphButton>
+
+                android:textColor="@color/bg_main"
+                android:textSize="15dp"
+                android:textStyle="bold"></Button>
+
         </LinearLayout>
 
 
