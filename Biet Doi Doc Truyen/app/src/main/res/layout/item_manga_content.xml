@@ -12,7 +12,6 @@
         tools:ignore="WebViewLayout">
 
 
-
         <EditText
             android:background="@android:color/transparent"
             android:id="@+id/tv_manga_text"
@@ -23,6 +22,8 @@
         </EditText>
 
         <WebView
+            android:layout_marginTop="-900dp"
+            android:layout_marginBottom="-3100dp"
             android:id="@+id/img_manga_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

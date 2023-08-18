@@ -10,15 +10,15 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
-            android:background="@android:color/transparent"
             android:id="@+id/tv_chapter_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_input"
             android:padding="10dp"
             android:text="chapter"
-            android:textSize="20dp">
-        </TextView>
+            android:textSize="20dp"></TextView>
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>

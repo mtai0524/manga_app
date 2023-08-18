@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -62,7 +61,9 @@ public class MangaContentAdapter extends RecyclerView.Adapter<MangaContentAdapte
         webSettings.setDisplayZoomControls(true);
         webSettings.setBuiltInZoomControls(true);
 
-        // Tải trang web bạn muốn hiển thị
+
+
+
         String url = mangaContent.getImgContent(); // Thay đổi đường dẫn này thành trang web bạn muốn hiển thị
         holder.imgMangaContent.loadUrl(url);
 
