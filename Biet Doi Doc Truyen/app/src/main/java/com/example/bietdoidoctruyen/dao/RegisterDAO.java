@@ -22,6 +22,22 @@ public class RegisterDAO {
         helper = new DbHelper(context);
 
     }
+    @SuppressLint("Range")
+    public String getAvatarByUserId(int userId) {
+        String avatar = null;
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        String query = "SELECT avatar FROM REGISTER WHERE userId = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(userId)});
+
+        if (cursor.moveToFirst()) {
+            avatar = cursor.getString(cursor.getColumnIndex("avatar"));
+        }
+
+        cursor.close();
+        return avatar;
+    }
+
     public void deleteUserById(int userId) {
         SQLiteDatabase db = helper.getWritableDatabase();
         db.delete("REGISTER", "userId = ?", new String[]{String.valueOf(userId)});

@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.bietdoidoctruyen.database.DbHelper;
 import com.example.bietdoidoctruyen.model.Comment;
+import com.example.bietdoidoctruyen.model.CommentWithUserInfo;
 import com.example.bietdoidoctruyen.model.History;
 
 import java.util.ArrayList;
@@ -18,6 +19,36 @@ public class CommentDAO {
     public CommentDAO (Context context){
         helper = new DbHelper(context);
     }
+
+
+    public List<CommentWithUserInfo> getCommentsWithUserInfo(int mangaId) {
+        List<CommentWithUserInfo> commentList = new ArrayList<>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        String query = "SELECT Comment.comment, Comment.userId, REGISTER.avatar, REGISTER.Username " +
+                "FROM Comment " +
+                "INNER JOIN REGISTER ON Comment.userId = REGISTER.userId " +
+                "WHERE Comment.mangaId = ?";
+
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(mangaId)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int userId = cursor.getInt(cursor.getColumnIndex("userId"));
+                @SuppressLint("Range") String avatar = cursor.getString(cursor.getColumnIndex("avatar"));
+                @SuppressLint("Range") String userName = cursor.getString(cursor.getColumnIndex("Username"));
+                @SuppressLint("Range") String comment = cursor.getString(cursor.getColumnIndex("comment"));
+
+                CommentWithUserInfo commentWithUserInfo = new CommentWithUserInfo(userId, avatar, userName, comment);
+                commentList.add(commentWithUserInfo);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return commentList;
+    }
+
+
 
 
     public void addComment(int userId, int mangaId, String commentText) {

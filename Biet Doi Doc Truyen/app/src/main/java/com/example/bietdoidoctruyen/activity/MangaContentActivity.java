@@ -111,7 +111,6 @@ public class MangaContentActivity extends AppCompatActivity {
                     MangaContentAdapter mangaContentAdapter = new MangaContentAdapter(MangaContentActivity.this);
                     mangaContentAdapter.setData(MangaContentActivity.this, mangaContentList);
                     rcvMangaContent.setAdapter(mangaContentAdapter);
-
                     // Tăng chỉ số currentChapterIndex lên để lấy id tiếp theo trong danh sách
                     currentChapterIndex++;
                 }

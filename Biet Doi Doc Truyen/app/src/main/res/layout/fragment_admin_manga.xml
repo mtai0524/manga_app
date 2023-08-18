@@ -125,6 +125,14 @@
                         android:textSize="20dp"></TextView>
 
                     <TextView
+                        android:id="@+id/tv_management_cmt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Quản lý bình luận"
+                        android:textSize="20dp"></TextView>
+
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
