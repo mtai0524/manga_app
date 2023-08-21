@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.example.bietdoidoctruyen.AddChapterFragment;
-import com.example.bietdoidoctruyen.AddContentFragment;
-import com.example.bietdoidoctruyen.AddMangaFragment;
+import com.example.bietdoidoctruyen.fragment.AddChapterFragment;
+import com.example.bietdoidoctruyen.fragment.AddContentFragment;
+import com.example.bietdoidoctruyen.fragment.AddMangaFragment;
 
 public class ViewPagerMangaAdapter extends FragmentStatePagerAdapter {
     public ViewPagerMangaAdapter(@NonNull FragmentManager fm, int behavior) {

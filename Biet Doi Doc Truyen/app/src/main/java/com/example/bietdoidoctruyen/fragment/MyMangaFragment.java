@@ -19,10 +19,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 //import com.example.bietdoidoctruyen.activity.AddMangaViewActivity;
-import com.example.bietdoidoctruyen.ManagementCommentActivity;
-import com.example.bietdoidoctruyen.ViewTabLayoutActivity;
+import com.example.bietdoidoctruyen.activity.ManagementCommentActivity;
+import com.example.bietdoidoctruyen.activity.ViewTabLayoutActivity;
 import com.example.bietdoidoctruyen.activity.AddCateViewActivity;
-import com.example.bietdoidoctruyen.ManagementUserActivity;
+import com.example.bietdoidoctruyen.activity.ManagementUserActivity;
 import com.example.bietdoidoctruyen.activity.ManagementCategoryActivity;
 import com.example.bietdoidoctruyen.activity.ManagementMangaActivity;
 import com.example.bietdoidoctruyen.activity.LoginActivity;
@@ -126,8 +126,6 @@ public class MyMangaFragment extends Fragment {
             view = inflater.inflate(R.layout.fragment_admin_manga, container, false);
             Log.i("ROLE", role);
             // admin
-            TextView tv = view.findViewById(R.id.tv_admin_role);
-            tv.setText("admin cdmm");
             addManga = view.findViewById(R.id.tv_addManga); //nó là của ad
             addManga.setOnClickListener(view1 -> {
 //                startActivity((new Intent(context, AddMangaViewActivity.class)));

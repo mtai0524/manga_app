@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddMangaFragment">
+    tools:context=".fragment.AddMangaFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="20dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -27,8 +28,9 @@
                 tools:layout_editor_absoluteY="45dp" />
 
             <EditText
+                android:layout_marginBottom="10dp"
                 android:id="@+id/et_mangaName"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -46,8 +48,10 @@
                 android:textSize="25dp"/>
 
             <EditText
+                android:layout_marginBottom="10dp"
+
                 android:id="@+id/et_mangaCover"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -64,8 +68,10 @@
                 android:textSize="25dp"/>
 
             <EditText
+                android:layout_marginBottom="10dp"
+
                 android:id="@+id/et_mangaDescription"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -83,6 +89,8 @@
                 android:textSize="25dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginBottom="10dp"
+
                 android:id="@+id/rcv_cb_cate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

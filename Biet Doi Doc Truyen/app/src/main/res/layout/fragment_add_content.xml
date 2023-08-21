@@ -3,9 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddContentFragment">
+    android:layout_margin="20dp"
+    tools:context=".fragment.AddContentFragment">
     <Spinner
 
+        android:padding="15dp"
+        android:background="#E8D8D8"
+        android:layout_marginBottom="20dp"
         android:id="@+id/spinner_manga_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -13,7 +17,7 @@
 
 
     <ListView
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="60dp"
         android:id="@+id/lv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

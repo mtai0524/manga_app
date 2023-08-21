@@ -9,7 +9,6 @@ public class ListData {
 
     private int type;
     private List<Manga> listManga;
-    private List<User> listUser;
     private String categoryName;
 
 
@@ -63,14 +62,7 @@ public class ListData {
         this.listManga = listManga;
     }
 
-    public List<User> getListUser() {
-        return listUser;
-    }
-
-    public void setListUser(List<User> listUser) {
-        this.listUser = listUser;
-    }
-
+  
     public String getCatagoryName() {
         return categoryName;
     }

@@ -1,9 +1,7 @@
 package com.example.bietdoidoctruyen.adapter;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,18 +11,12 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.bietdoidoctruyen.DetailActivity;
 import com.example.bietdoidoctruyen.R;
-import com.example.bietdoidoctruyen.ViewDetailCmtManga;
-import com.example.bietdoidoctruyen.activity.LoginActivity;
-import com.example.bietdoidoctruyen.dao.RegisterDAO;
+import com.example.bietdoidoctruyen.activity.ViewDetailCmtManga;
 import com.example.bietdoidoctruyen.model.Manga;
-import com.example.bietdoidoctruyen.model.Register;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListViewMangaComment extends BaseAdapter {

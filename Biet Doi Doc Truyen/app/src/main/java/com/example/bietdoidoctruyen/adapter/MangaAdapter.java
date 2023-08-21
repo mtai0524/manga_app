@@ -9,16 +9,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 //import com.example.bietdoidoctruyen.DataChapters;
-//import com.example.bietdoidoctruyen.DetailActivity;
+//import com.example.bietdoidoctruyen.activity.DetailActivity;
 import com.bumptech.glide.Glide;
 import com.example.bietdoidoctruyen.DataChapters;
-import com.example.bietdoidoctruyen.DetailActivity;
+import com.example.bietdoidoctruyen.activity.DetailActivity;
 import com.example.bietdoidoctruyen.activity.LoginActivity;
 import com.example.bietdoidoctruyen.R;
 import com.example.bietdoidoctruyen.dao.HistoryDAO;
@@ -80,7 +79,6 @@ public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.CategoryView
         holder.layoutItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mConText, "clicked", Toast.LENGTH_SHORT).show();
                 onClickShowDetail(manga);
                 HistoryFragment.mangaHistoryList.add(manga);
 //                MangaListSingleton.getInstance().addManga(manga);
@@ -88,11 +86,6 @@ public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.CategoryView
                 int mangaId = manga.getIdManga(); // Điền mã manga của manga được click
                 HistoryDAO historyDAO = new HistoryDAO(mConText);
                 long result = historyDAO.addMangaToHistory(userId, mangaId);
-                if (result != -1) {
-                    Toast.makeText(mConText, "Manga added to history!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(mConText, "Failed to add manga to history.", Toast.LENGTH_SHORT).show();
-                }
             }
         });
         DataChapters dataChapters = new DataChapters(mConText);

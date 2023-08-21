@@ -22,8 +22,8 @@
         </EditText>
 
         <WebView
-            android:layout_marginTop="-900dp"
-            android:layout_marginBottom="-3100dp"
+            android:layout_marginTop="-840dp"
+            android:layout_marginBottom="-3050dp"
             android:id="@+id/img_manga_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

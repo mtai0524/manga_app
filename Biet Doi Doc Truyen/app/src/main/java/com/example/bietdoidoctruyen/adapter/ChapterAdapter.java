@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-//import com.example.bietdoidoctruyen.DetailActivity;
+//import com.example.bietdoidoctruyen.activity.DetailActivity;
 //import com.example.bietdoidoctruyen.activity.MangaContentActivity;
 import com.example.bietdoidoctruyen.activity.MangaContentActivity;
 import com.example.bietdoidoctruyen.R;

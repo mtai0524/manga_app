@@ -3,16 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddChapterFragment">
+    tools:context=".fragment.AddChapterFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
+        android:layout_margin="20dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Spinner
-
+            android:padding="15dp"
+            android:background="#E8D8D8"
+android:layout_marginBottom="20dp"
             android:id="@+id/spinner_manga_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -22,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
+                android:layout_marginBottom="10dp"
                 android:id="@+id/et_add_chapter"
                 android:hint="nhập tên chapter"
                 android:layout_width="wrap_content"
@@ -29,6 +33,7 @@
                 android:layout_height="wrap_content">
             </EditText>
             <Button
+                android:layout_marginLeft="10dp"
                 android:padding="15dp"
                 android:textAllCaps="false"
                 android:textColor="@color/color_button_text"

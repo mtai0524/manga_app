@@ -4,10 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.bietdoidoctruyen.StringUtils;
 import com.example.bietdoidoctruyen.database.DbHelper;
 import com.example.bietdoidoctruyen.model.Manga;
 
@@ -19,7 +17,25 @@ public class MangaDAO {
 
     public MangaDAO(Context context) {
         helper = new DbHelper(context);
+    }
+    @SuppressLint("Range")
+    public String getDescriptionByMangaId(int mangaId) {
+        String mangaDescription = "";
+        SQLiteDatabase db = helper.getReadableDatabase();
 
+        String[] projection = { "description" };
+        String selection = "mangaId = ?";
+        String[] selectionArgs = { String.valueOf(mangaId) };
+
+        Cursor cursor = db.query("MANGA", projection, selection, selectionArgs, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            mangaDescription = cursor.getString(cursor.getColumnIndex("description"));
+        }
+
+        cursor.close();
+        db.close();
+        return mangaDescription;
     }
     public List<Integer> getAllMangaIds() {
         List<Integer> mangaIds = new ArrayList<>();

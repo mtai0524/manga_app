@@ -83,14 +83,6 @@ public class ListDataAdapter extends RecyclerView.Adapter<ListDataAdapter.ListVi
             holder.rcvItem.setAdapter(mangaAdapter);
             holder.rcvItem.setFocusable(false);
 
-        } else if(TYPE_USER == holder.getItemViewType()){
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, RecyclerView.VERTICAL, false);
-            holder.rcvItem.setLayoutManager(linearLayoutManager);
-            UserAdapter userAdapter = new UserAdapter();
-            userAdapter.setData(listData.getListUser());
-            holder.tvNameCategory.setText(listData.getCatagoryName());
-            holder.rcvItem.setAdapter(userAdapter);
-            holder.rcvItem.setFocusable(false);
         }
         else if(TYPE_CATEGORY_VERTICAL == holder.getItemViewType()){
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, RecyclerView.VERTICAL, false);

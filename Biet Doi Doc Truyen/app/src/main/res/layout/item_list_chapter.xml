@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
+    android:layout_margin="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <EditText
+        android:layout_margin="10dp"
         android:id="@+id/tv_chapter_name_view"
         android:text="ten chapter"
         android:layout_weight="1"
@@ -11,6 +13,11 @@
         android:layout_height="wrap_content">
     </EditText>
     <Button
+        android:layout_margin="10dp"
+        android:textAllCaps="false"
+        android:padding="5dp"
+        android:textColor="@color/color_button_text"
+        android:background="@drawable/btn_bg_edit"
         android:id="@+id/btn_edit_chapter"
         android:text="edit chapter"
         android:layout_width="wrap_content"
