@@ -24,16 +24,11 @@ public class ManagementCategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_managament_category);
 
-
-
         lvCate = findViewById(R.id.lv_cate);
         List<ListData> list = new ArrayList<>();
         ListDataDAO listDataDAO = new ListDataDAO(ManagementCategoryActivity.this);
 
         list = listDataDAO.getAllCategories();
-
-
-
         ManagementCateAdapter managementCateAdapter = new ManagementCateAdapter(ManagementCategoryActivity.this, list);
         lvCate.setAdapter(managementCateAdapter);
     }

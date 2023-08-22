@@ -27,7 +27,6 @@ public class ManagementCommentActivity extends AppCompatActivity {
         lvCmt = findViewById(R.id.lv_cmt);
 
         ListViewMangaComment listViewMangaComment = new ListViewMangaComment(ManagementCommentActivity.this, list);
-
         lvCmt.setAdapter(listViewMangaComment);
     }
 }

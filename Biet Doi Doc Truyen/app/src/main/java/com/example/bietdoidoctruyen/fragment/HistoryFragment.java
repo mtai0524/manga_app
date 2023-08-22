@@ -63,9 +63,6 @@ public class HistoryFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         rcv_data.setLayoutManager(linearLayoutManager);
 
-
-
-
         listDataAdapter = new ListDataAdapter(context);
 
         ListData listData = new ListData();

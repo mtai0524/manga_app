@@ -198,7 +198,6 @@ public class DetailActivity extends AppCompatActivity {
                     Toast.makeText(DetailActivity.this, "đã đánh giá", Toast.LENGTH_SHORT).show();
 
                 }
-                // Refresh your comments here, assuming getCmt will be updated
                 getCmt = ratingDAO.getCommentForMangaAndUser(LoginActivity.getUserId(), manga.getIdManga());
                 tvContent.setText(getCmt);
                 etCmt.setText("");
@@ -217,30 +216,11 @@ public class DetailActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.layout_dialog_comment);
         tvContent = dialog.findViewById(R.id.tvContent);
         tvUserCmt = dialog.findViewById(R.id.tv_user_cmt);
-
         commentDAO = new CommentDAO(DetailActivity.this);
 
         updateDialogContent();
 
         tvUserCmt.setText("Bình luận\n" + registerDAO.getUsernameByUserId(LoginActivity.getUserId()));
-
-// Convert the StringBuilder to a String
-
-
-
-        String storyText = "<h1>Tiêu đề truyện</h1>"
-                + "<p>&emsp;Trong một buổi sáng nắng đẹp, những tia nắng ấm áp len lỏi qua những cánh cửa sổ nhỏ vào trong căn phòng. Tiếng chim hót líu lo vang lên từ ngoài hiên, tạo nên bầu không khí thật tươi mát và thư giãn"
-                + "<p>&emsp;Quyền lực và trí tuệ của nàng sẽ được thử thách, nhưng nàng không còn sợ hãi. Trái tim nàng đập mạnh hơn bao giờ hết, bởi nàng biết rằng cô công chúa nhỏ bé kia đã trưởng thành thành một người phụ nữ mạnh mẽ, sẵn sàng đối đầu với bất cứ thử thách nào..</p>";
-
-// Chuyển đoạn văn bản có thẻ HTML thành chuỗi hiển thị được trong TextView
-        Spanned spannedText = Html.fromHtml(storyText);
-
-// Gán chuỗi đã chuyển đổi vào TextView
-
-
-
-
-//        tvContent.setText(spannedText);
         Window window = dialog.getWindow();
         if (window == null) return;
         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
@@ -287,45 +267,4 @@ public class DetailActivity extends AppCompatActivity {
         }
         dialog.show();
     }
-
-//    private List<Chapter> listChapter() {
-//        List<Chapter> chapterList = new ArrayList<>();
-//        chapterList.add(new Chapter("Chapter 1"));
-//        chapterList.add(new Chapter("Chapter 2"));
-//        chapterList.add(new Chapter("Chapter 3"));
-//        if(category.getMangaName().equals("banh bao chien")){
-//            chapterList.add(new Chapter("Chapter 3"));
-//        }
-//        return chapterList;
-//    }
-
-//    public List<Chapter> showOnChaptersList(){
-//        List<Chapter> chapters = new ArrayList<>();
-//        if (category.getMangaName().equals("banh bao chien")) {
-//            Chapter chapter1 = new Chapter("Chapter 1.1 bbc taiusoica");
-//            chapters.add(chapter1);
-//            Chapter chapter2 = new Chapter("Chapter 1.2 bbc");
-//            chapters.add(chapter2);
-//        } else if (category.getMangaName().equals("ngo khong")) {
-//            Chapter chapter3 = new Chapter("Chapter 2.1 met moi");
-//            chapters.add(chapter3);
-//            Chapter chapter4 = new Chapter("Chapter 2.2");
-//            chapters.add(chapter4);
-//            Chapter chapter5 = new Chapter("Chapter 2.2");
-//            chapters.add(chapter5);
-//            Chapter chapter6 = new Chapter("Chapter 2.2");
-//            chapters.add(chapter6);
-//            Chapter chapter7 = new Chapter("Chapter 2.2");
-//            chapters.add(chapter7);
-//            Chapter chapter8 = new Chapter("Chapter 2.2");
-//            chapters.add(chapter8);
-//            Chapter chapter9 = new Chapter("Chapter 2.2");
-//            chapters.add(chapter9);
-//            Chapter chapter10 = new Chapter("Chapter 2.2");
-//            chapters.add(chapter10);
-//            Chapter chapter11 = new Chapter("Chapter 2.2");
-//            chapters.add(chapter11);
-//        }
-//        return chapters;
-//    }
 }

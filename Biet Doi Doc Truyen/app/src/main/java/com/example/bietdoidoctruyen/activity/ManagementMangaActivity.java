@@ -45,7 +45,6 @@ public class ManagementMangaActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        // Gọi finish để đóng Activity và loại bỏ khỏi back stack
         finish();
     }
 }

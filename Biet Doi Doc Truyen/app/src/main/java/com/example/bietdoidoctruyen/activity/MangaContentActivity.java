@@ -47,27 +47,6 @@ public class MangaContentActivity extends AppCompatActivity {
         MangaContentDAO mangaContentDAOS = new MangaContentDAO(this);
         // khi adapter chỉ có img thì dùng list img còn khi có 2 control thì dùng cả list đối tượng
         List<MangaContent> mangaContentList = mangaContentDAOS.getContentByChapterId(chapter.getChapterId());
-//        List<String> imgContentList = new ArrayList<>();
-//        if (mangaContentList != null) {
-//            // Lặp qua danh sách MangaContent để lấy trường imgContent
-//            for (MangaContent mangaContent : mangaContentList) {
-//                String imgContent = mangaContent.getImgContent();
-//                imgContentList.add(imgContent);
-//
-//            }
-//        } else {
-//            Log.d("MangaContentDAO", "MangaContentList is empty or null.");
-//        }
-
-//        List<MangaContent> mangaContentListImg = new ArrayList<>();
-
-// Tạo các đối tượng MangaContent từ imgContentList và thêm vào mangaContentList
-//        for (String imgContent : imgContentList) {
-//            MangaContent mangaContent = new MangaContent();
-//            mangaContent.setImgContent(imgContent);
-//            mangaContentListImg.add(mangaContent);
-//        }
-
 
 
         for (MangaContent mangaContent : mangaContentList) {
@@ -136,14 +115,5 @@ public class MangaContentActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    private List<MangaContent> showMangaContent() {
-        List<MangaContent> mangaContentList = new ArrayList<>();
-        mangaContentList.add(new MangaContent(R.drawable.conan1));
-        mangaContentList.add(new MangaContent(R.drawable.conan2));
-        mangaContentList.add(new MangaContent(R.drawable.conan3));
-        mangaContentList.add(new MangaContent(R.drawable.conan4));
-        return mangaContentList;
     }
 }

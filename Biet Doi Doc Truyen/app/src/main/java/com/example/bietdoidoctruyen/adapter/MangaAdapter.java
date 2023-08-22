@@ -67,13 +67,6 @@ public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.CategoryView
                 .load(imageUrl)
                 .into(holder.imgCategory);
 
-//        String imgName = manga.getImage();
-//        int res = 0;
-//        if (mConText != null) {
-//            res = mConText.getResources().getIdentifier(imgName, "drawable", mConText.getPackageName());
-//        }
-//        holder.imgCategory.setImageResource(res);
-
 
         holder.tvDescriptionItem.setText(manga.getMangaName());
         holder.layoutItem.setOnClickListener(new View.OnClickListener() {

@@ -33,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-
 
         if (savedInstanceState == null) {
             // Đây là lần đầu tiên Activity được tạo, hãy thêm fragment vào container
@@ -45,32 +42,6 @@ public class MainActivity extends AppCompatActivity {
             transaction.addToBackStack(null); // Thêm fragment vào back stack
             transaction.commit();
         }
-
-        // check DAO getContentByChapterId OK
-//        MangaContentDAO mangaContentDAO = new MangaContentDAO(this);
-//        mangaContentDAO.getContentByChapterId(1);
-//        List<MangaContent> mangaContents = mangaContentDAO.getContentByChapterId(1);
-
-//        for (MangaContent mangaContent : mangaContents) {
-//            int contentId = mangaContent.getContentId();
-//            int chapterContentId = mangaContent.getChapterContentId();
-//            String imgContent = mangaContent.getImgContent();
-//
-//            Log.d("MangaContentDAO", "ContentId: " + contentId + ", ChapterContentId: " + chapterContentId + ", ImgContent: " + imgContent);
-//        }
-
-        // check DAO getall() OK
-//        mangaContents = mangaContentDAO.getAll();
-//        for (MangaContent mangaContent : mangaContents) {
-//            int contentId = mangaContent.getContentId();
-//            int chapterContentId = mangaContent.getChapterContentId();
-//            String imgContent = mangaContent.getImgContent();
-//            Log.d("check getall DAO", "ContentId: " + contentId + ", ChapterContentId: " + chapterContentId + ", ImgContent: " + imgContent);
-//        }
-
-
-
-
 
 //         Bottom nav
         viewPager = findViewById(R.id.view_pager);
@@ -120,29 +91,16 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_home:
                         viewPager.setCurrentItem(0);
-//                        Toast.makeText(MainActivity.this, "home", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_favorite:
                         viewPager.setCurrentItem(1);
-//                        startActivity(new Intent(MainActivity.this, DiscoverActivity.class));
-//                        Toast.makeText(MainActivity.this, "favorite", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.action_history:
                         viewPager.setCurrentItem(2);
-//                        startActivity(new Intent(MainActivity.this, DiscoverActivity.class));
-//                        Toast.makeText(MainActivity.this, "favorite", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_myManga:
                         viewPager.setCurrentItem(3);
-//                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
-////                        item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-////                            @Override
-////                            public boolean onMenuItemClick(MenuItem menuItem) {
-////                                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-////                                return true;
-////                            }
-////                        });
                         break;
                 }
                 return true;

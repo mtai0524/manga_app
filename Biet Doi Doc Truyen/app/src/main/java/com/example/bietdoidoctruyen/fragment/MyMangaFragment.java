@@ -219,9 +219,6 @@ public class MyMangaFragment extends Fragment {
             startActivity(new Intent(context, LoginActivity.class));
         });
 
-
-
-
         rcv_data = view.findViewById(R.id.rcv_data);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         rcv_data.setLayoutManager(linearLayoutManager);

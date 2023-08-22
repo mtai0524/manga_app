@@ -64,13 +64,6 @@ public class EditMangaAdapter extends RecyclerView.Adapter<EditMangaAdapter.Cate
                 .load(imageUrl)
                 .into(holder.imgCategory);
 
-//        String imgName = manga.getImage();
-//        int res = 0;
-//        if (mConText != null) {
-//            res = mConText.getResources().getIdentifier(imgName, "drawable", mConText.getPackageName());
-//        }
-//        holder.imgCategory.setImageResource(res);
-
 
         holder.tvDescriptionItem.setText(manga.getMangaName());
 
@@ -87,28 +80,6 @@ public class EditMangaAdapter extends RecyclerView.Adapter<EditMangaAdapter.Cate
                 onClickShowDetail(manga, EditActivity.class);
             }
         });
-
-//        holder.layout_item_edit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(mConText, "clicked", Toast.LENGTH_SHORT).show();
-//                onClickShowDetail(manga, DetailActivity.class);
-//                HistoryFragment.mangaHistoryList.add(manga);
-////                MangaListSingleton.getInstance().addManga(manga);
-//                int userId = LoginActivity.getUserId();
-//                int mangaId = manga.getIdManga(); // Điền mã manga của manga được click
-//                HistoryDAO historyDAO = new HistoryDAO(mConText);
-//                long result = historyDAO.addMangaToHistory(userId, mangaId);
-//                if (result != -1) {
-//                    Toast.makeText(mConText, "Manga added to history!", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(mConText, "Failed to add manga to history.", Toast.LENGTH_SHORT).show();
-//                }
-//
-////            }
-////        });
-//        DataChapters dataChapters = new DataChapters(mConText);
-//        dataChapters.showOnChaptersList(manga);
     }
 
 

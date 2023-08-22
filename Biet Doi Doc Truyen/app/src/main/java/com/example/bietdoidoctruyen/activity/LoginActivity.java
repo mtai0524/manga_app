@@ -61,8 +61,6 @@ public class LoginActivity extends AppCompatActivity {
         verifyLoginInformation();
     }
 
-
-
     private void verifyLoginInformation() {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,39 +96,4 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
     }
-
-    private void turnOnPopupLogo(int gravity) {
-        final Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.layout_dialog_popup);
-        TextView tvContent = dialog.findViewById(R.id.tvContent);
-
-        String storyText = "<h1>Tiêu đề truyện</h1>"
-                + "<p>&emsp;Trong một buổi sáng nắng đẹp, những tia nắng ấm áp len lỏi qua những cánh cửa sổ nhỏ vào trong căn phòng. Tiếng chim hót líu lo vang lên từ ngoài hiên, tạo nên bầu không khí thật tươi mát và thư giãn"
-                + "&emsp;Nàng công chúa đứng bên cửa sổ, nhìn ra ngoài cảnh vật tươi đẹp của vương quốc. Trong đôi mắt nàng tỏa sáng ánh sáng, hạnh phúc đong đầy trong từng nụ cười. Cuộc sống của nàng đầy hứa hẹn và niềm vui vẫn đang chờ đón nàng ở phía trước..</p>"
-                + "<p>&emsp;Quyền lực và trí tuệ của nàng sẽ được thử thách, nhưng nàng không còn sợ hãi. Trái tim nàng đập mạnh hơn bao giờ hết, bởi nàng biết rằng cô công chúa nhỏ bé kia đã trưởng thành thành một người phụ nữ mạnh mẽ, sẵn sàng đối đầu với bất cứ thử thách nào..</p>";
-
-// Chuyển đoạn văn bản có thẻ HTML thành chuỗi hiển thị được trong TextView
-        Spanned spannedText = Html.fromHtml(storyText);
-
-// Gán chuỗi đã chuyển đổi vào TextView
-
-
-
-
-        tvContent.setText(spannedText);
-        Window window = dialog.getWindow();
-        if (window == null) return;
-        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        WindowManager.LayoutParams windowAttr = window.getAttributes();
-        windowAttr.gravity = gravity;
-        window.setAttributes(windowAttr);
-        if (Gravity.CENTER == gravity) {
-            dialog.setCancelable(true);
-        }
-        dialog.show();
-    }
-
-
 }

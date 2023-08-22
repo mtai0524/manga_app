@@ -68,15 +68,6 @@ public class MangaContentAdapter extends RecyclerView.Adapter<MangaContentAdapte
         holder.imgMangaContent.loadUrl(url);
 
 
-//        if (url == null || url.isEmpty()) {
-//            holder.imgMangaContent.setVisibility(View.GONE); // Ẩn ImageView nếu imgName rỗng
-//        } else {
-//
-//            }
-//            holder.imgMangaContent.setVisibility(View.VISIBLE); // Hiển thị ImageView nếu có imgName
-//            holder.imgMangaContent.setImageResource(res);
-//        }
-
         String mgTxt = mangaContent.getMangaTxt();
         Spanned spanned = Html.fromHtml(mgTxt);
         holder.tvMangaTxt.setText(spanned);

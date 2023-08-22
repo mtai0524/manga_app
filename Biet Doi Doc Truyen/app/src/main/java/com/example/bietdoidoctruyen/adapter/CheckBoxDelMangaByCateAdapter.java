@@ -23,8 +23,6 @@ public class CheckBoxDelMangaByCateAdapter extends RecyclerView.Adapter<CheckBox
         selectedOptions = new boolean[options.size()];
     }
 
-
-
     public CheckBoxDelMangaByCateAdapter(Context context,List<String> options, List<Integer> selectedIndices) {
         this.options = options;
         selectedOptions = new boolean[options.size()];
@@ -59,14 +57,7 @@ public class CheckBoxDelMangaByCateAdapter extends RecyclerView.Adapter<CheckBox
             holder.cbCate.setEnabled(false);
         } else {
             holder.cbCate.setOnCheckedChangeListener((buttonView, isChecked) -> {
-//                List<Integer> listIds = DeleteMangaViewActivity.listCateIds;
                 selectedOptions[position] = isChecked;
-//                CategoryMangaDAO categoryMangaDAO = new CategoryMangaDAO(context);
-//                if (!isChecked && position < listIds.size()) {
-//                    int categoryId = listIds.get(position);
-//                    categoryMangaDAO.removeMangaByCategoryId(categoryId);
-//                    Log.i("VAAO", "VAO");
-//                }
             });
         }
     }

@@ -45,9 +45,6 @@
             android:name=".activity.ManagementCategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.DiscoverActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.MangaContentActivity"
             android:exported="false" />
         <activity

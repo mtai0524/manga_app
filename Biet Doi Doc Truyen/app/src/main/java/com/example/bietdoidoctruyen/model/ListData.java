@@ -37,7 +37,6 @@ public class ListData {
     }
 
 
-
     public int getCategoryId() {
         return categoryId;
     }

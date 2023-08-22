@@ -66,7 +66,7 @@ public class DeleteMangaViewActivity extends AppCompatActivity {
                 do {
                     if (!adapter.getSelectedOptions()[i]) {
                         int checkIn = listCateIds.get(i);
-                        categoryMangaDAO.removeMangaByCategoryIdAndMangaId(checkIn, manga.getIdManga()); // lỗi
+                        categoryMangaDAO.removeMangaByCategoryIdAndMangaId(checkIn, manga.getIdManga());
                         Toast.makeText(DeleteMangaViewActivity.this, "xoa thanh cong", Toast.LENGTH_SHORT).show();
                         finish();
                         return;

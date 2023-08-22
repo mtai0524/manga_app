@@ -108,7 +108,6 @@ public class HomeFragment extends Fragment {
             listData.setListCategory(mangaList);
             listData.setType(category.getType());
             listData.setCatagoryName(category.getCatagoryName());
-
             listDataAdapter.addData(listData);
         }
 
