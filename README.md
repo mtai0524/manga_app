@@ -26,4 +26,9 @@
 
 ## Video demo ứng dụng
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7sTjo_44USA?si=_7XfiABcADgnRkAU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div align="left">
+      <a href="https://www.youtube.com/embed/7sTjo_44USA?si=_7XfiABcADgnRkAU">
+         <img src="https://res.cloudinary.com/dl3hvap4a/image/upload/v1695786090/axxdbjh43rgdhpf7psrh.jpg" style="width:100%;">
+      </a>
+</div>
+
