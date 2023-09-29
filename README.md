@@ -26,9 +26,9 @@
 
 ## Video demo ứng dụng
 
-<div align="left">
+<div align="center">
       <a href="https://www.youtube.com/embed/7sTjo_44USA?si=_7XfiABcADgnRkAU">
-         <img src="https://res.cloudinary.com/dl3hvap4a/image/upload/v1695786090/axxdbjh43rgdhpf7psrh.jpg" style="width:100%;">
+         <img src="https://res.cloudinary.com/dl3hvap4a/image/upload/v1695786090/axxdbjh43rgdhpf7psrh.jpg" style="width:50%;">
       </a>
 </div>
 
