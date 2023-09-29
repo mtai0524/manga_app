@@ -10,3 +10,10 @@
     <img src="https://res.cloudinary.com/dl3hvap4a/image/upload/v1695995700/z4738855855951_0b03885e7a36d3ac569681881b14fc48_atg6c3.jpg" width="300" height="650" />
 </p>
 
+## Giao diện chính
+<div style="display: flex; justify-content: center;">
+    <img src="https://res.cloudinary.com/dl3hvap4a/image/upload/v1695995700/z4738855855951_0b03885e7a36d3ac569681881b14fc48_atg6c3.jpg" width="300" height="650" />
+    <img src="https://res.cloudinary.com/dl3hvap4a/image/upload/v1695995699/z4738855859784_3da19cf73425b9fa16734eac8ee6ecc9_anutu9.jpg" width="300" height="650" />
+    <img src="https://res.cloudinary.com/dl3hvap4a/image/upload/v1695995698/z4738855907271_17e7771e3300f032efa3e12fdeb565bc_ueb6ax.jpg.jpg" width="300" height="650" />
+</div>
+
